@@ -9,10 +9,22 @@ SRC
 			
 		- APPLICATION
 				- Behaviours (Comportamientos)
-				- Contracts (Contratos)
-					- Persistence 
-						Generamos los interfaces de IAsyncRepository de las clases
 				
+				- Contracts (Contratos)
+					- Persistence  (Generamos los interfaces de IAsyncRepository de las clases)
+				
+				- Features (Caracteristicas)		
+					- ENTIDAD 1
+						Commands
+							- Create
+							- Update
+							- Delete
+						Queries
+
+					- ENTIDAD N
+						Commands
+						Queries
+
 	- INFRAESTRUCTURE
 
 	
