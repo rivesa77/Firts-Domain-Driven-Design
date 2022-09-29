@@ -7,3 +7,5 @@ Libreria.Domain/bin
 Libreria.Application/bin
 Libreria.Infrastructure/bin
 Libreria.Infrastructure/obj
+Libreria.API/obj
+Libreria.API/bin
