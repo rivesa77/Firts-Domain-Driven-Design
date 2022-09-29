@@ -7,7 +7,7 @@ namespace Libreria.Domain
 
         public Precio()
         {
-            Libros = new List<Libro>();
+
         }
 
         public DateTime Fecha { get; set; }
@@ -16,7 +16,7 @@ namespace Libreria.Domain
 
         public int LibroId { get; set; }
 
-        public virtual ICollection<Libro> Libros { get; set; }
+        public virtual Libro Libro { get; set; }
 
     }
 }
