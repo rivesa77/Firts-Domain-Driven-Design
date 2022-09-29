@@ -14,6 +14,8 @@ namespace Libreria.Domain
 
         public decimal Importe { get; set; }
 
+        public int LibroId { get; set; }
+
         public virtual ICollection<Libro> Libros { get; set; }
 
     }

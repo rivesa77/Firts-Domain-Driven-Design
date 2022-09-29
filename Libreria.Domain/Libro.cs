@@ -18,6 +18,8 @@ namespace Libreria.Domain
         public string Asin { get; set; }
         public int Paginas { get; set; }
 
+        public int EditorialId { get; set; }
+
         public Editorial Editorial { get; set; }
 
         public virtual ICollection<Precio> Precios { get; set; }
