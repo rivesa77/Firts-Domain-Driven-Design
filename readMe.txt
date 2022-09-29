@@ -1,0 +1,23 @@
+
+
+ESTRUCTURA INICIAL PROYECTO
+	DOC
+	SRC
+		- API
+		- CORE
+			- DOMAIN (DEFINICION CLASES)
+			
+			- APPLICATION
+				
+		- INFRAESTRUCTURE
+	
+	TEST
+
+
+
+
+
+
+
+
+
