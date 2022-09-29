@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Platforms>AnyCPU;x86</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,8 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Autores\Commands\Delete\" />
-    <Folder Include="Features\Autores\Commands\Update\" />
     <Folder Include="Features\Autores\Queries\" />
     <Folder Include="Features\Editoriales\Commands\Delete\" />
     <Folder Include="Features\Editoriales\Commands\Update\" />

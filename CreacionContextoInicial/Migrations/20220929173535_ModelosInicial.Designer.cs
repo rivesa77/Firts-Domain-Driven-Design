@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CreacionContextoInicial.Migrations
 {
     [DbContext(typeof(libreriaContextoInicial))]
-    [Migration("20220929152709_GeneracionEntidades")]
-    partial class GeneracionEntidades
+    [Migration("20220929173535_ModelosInicial")]
+    partial class ModelosInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

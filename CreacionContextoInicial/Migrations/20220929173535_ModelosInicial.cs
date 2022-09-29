@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CreacionContextoInicial.Migrations
 {
-    public partial class GeneracionEntidades : Migration
+    public partial class ModelosInicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

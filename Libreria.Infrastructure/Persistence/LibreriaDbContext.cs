@@ -1,6 +1,7 @@
 ﻿using Libreria.Domain;
 using Libreria.Domain.Common;
 using Microsoft.EntityFrameworkCore;
+using System.IO;
 
 namespace Libreria.Infrastructure.Persistence
 {
@@ -14,10 +15,10 @@ namespace Libreria.Infrastructure.Persistence
         {
         }
 
-        public DbSet<Libro>? Libros { get; set; }
-        public DbSet<Editorial>? Editoriales { get; set; }
-        public DbSet<Genero>? Generos { get; set; }
-        public DbSet<Autor>? Autores { get; set; }
+        public DbSet<Libro>? Libro { get; set; }
+        public DbSet<Editorial>? Editorial { get; set; }
+        public DbSet<Genero>? Genero { get; set; }
+        public DbSet<Autor>? Autor { get; set; }
 
 
         // Se ejecuta antes de insertar/actualizar el valor en la BD para la auditoria
@@ -56,12 +57,20 @@ namespace Libreria.Infrastructure.Persistence
             /// relacion logica por codigo
             /// 
 
-            modelBuilder.Entity<Libro>()
-                .HasOne(m => m.Editorial)
-                .WithMany(m => m.Libros) // que entidad padre es 
-                .HasForeignKey(m => m) // donde esta la foreign key
-                .IsRequired() // es requerido la relacion
-                .OnDelete(DeleteBehavior.Restrict); // con borrado en cascada
+            //modelBuilder.Entity<Libro>()
+            //    .HasOne(m => m.Editorial)
+            //    .WithMany(m => m.Libros) // que entidad padre es 
+            //    .HasForeignKey(m => m) // donde esta la foreign key
+            //    .IsRequired() // es requerido la relacion
+            //    .OnDelete(DeleteBehavior.Restrict); // con borrado en cascada
+
+            modelBuilder.Entity<Editorial>()
+                .HasMany(m => m.Libros) //muchos libros
+                .WithOne(m => m.Editorial) // que entidad padre es 
+                .HasForeignKey(m => m.EditorialId) // donde esta la foreign key
+                .IsRequired(); // es requerido la relacion
+                
+
 
             modelBuilder.Entity<Libro>()
                 .HasMany(m => m.Autores)
