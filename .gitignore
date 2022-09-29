@@ -4,3 +4,6 @@ Libreria.Domain/obj
 .vs/Libreria/DesignTimeBuild
 .vs/ProjectEvaluation
 Libreria.Domain/bin
+Libreria.Application/bin
+Libreria.Infrastructure/bin
+Libreria.Infrastructure/obj

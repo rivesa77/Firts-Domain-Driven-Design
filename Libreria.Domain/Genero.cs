@@ -11,7 +11,7 @@ namespace Libreria.Domain
             Libros = new List<Libro>();
         }
 
-        public string Nombre { get; set; }
+        public string Nombre { get; set; } = string.Empty;
 
         public virtual ICollection<Libro> Libros { get; set; }
 

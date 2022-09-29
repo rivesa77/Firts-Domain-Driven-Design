@@ -26,6 +26,8 @@ SRC
 						Queries
 
 	- INFRAESTRUCTURE
+		- Persistence
+		- Repositories
 
 	
 TEST
@@ -40,7 +42,9 @@ LIBRERIAS AÑADIDAS A APPLICATION
 	- AutoMapper
 
 
-
+LIBRERIAS AÑADIDAS A INFRASTRUCTURE
+	- Microsoft.EntityFrameworkCore.SqlServer
+	- Microsoft.EntityFrameworkCore.Tools
 
 
 

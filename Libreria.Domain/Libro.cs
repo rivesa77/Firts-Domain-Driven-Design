@@ -14,8 +14,8 @@ namespace Libreria.Domain
             Autores = new List<Autor>();
         }
 
-        public string Titulo { get; set; }
-        public string Asin { get; set; }
+        public string Titulo { get; set; } = string.Empty;
+        public string Asin { get; set; } = string.Empty;
         public int Paginas { get; set; }
 
         public int EditorialId { get; set; }

@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using Libreria.Application.Behaviours__Comportamientos_;
+using Libreria.Application.Behaviours;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
