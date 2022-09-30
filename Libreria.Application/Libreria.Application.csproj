@@ -24,8 +24,6 @@
     <Folder Include="Features\Autores\Queries\" />
     <Folder Include="Features\Editoriales\Queries\" />
     <Folder Include="Features\Generos\Queries\" />
-    <Folder Include="Features\Libros\Commands\Delete\" />
-    <Folder Include="Features\Libros\Commands\Update\" />
     <Folder Include="Features\Libros\Queries\" />
   </ItemGroup>
 

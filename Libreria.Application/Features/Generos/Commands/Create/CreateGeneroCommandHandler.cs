@@ -23,9 +23,9 @@ namespace Libreria.Application.Features.Generos.Commands.Create
 
         public async Task<int> Handle(CreateGeneroCommand request, CancellationToken cancellationToken)
         {
-            var generoEntity = _mapper.Map<Autor>(request);
+            var generoEntity = _mapper.Map<Genero>(request);
 
-            _unitOfWork.Repository<Autor>().AddEntity(generoEntity);
+            _unitOfWork.Repository<Genero>().AddEntity(generoEntity);
 
             var result = await _unitOfWork.Complete();
 

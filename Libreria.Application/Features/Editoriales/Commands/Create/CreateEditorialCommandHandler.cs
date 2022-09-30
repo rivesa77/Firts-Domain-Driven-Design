@@ -23,9 +23,9 @@ namespace Libreria.Application.Features.Editoriales.Commands.Create
 
         public async Task<int> Handle(CreateEditorialCommand request, CancellationToken cancellationToken)
         {
-            var editorialEntity = _mapper.Map<Autor>(request);
+            var editorialEntity = _mapper.Map<Editorial>(request);
 
-            _unitOfWork.Repository<Autor>().AddEntity(editorialEntity);
+            _unitOfWork.Repository<Editorial>().AddEntity(editorialEntity);
 
             var result = await _unitOfWork.Complete();
 
