@@ -1,7 +1,8 @@
 ﻿using Libreria.API.Error;
+using Libreria.Application.Exceptions;
+using Newtonsoft.Json;
 using System.Net;
 using System.Net.Mime;
-using System.Text.Json;
 
 namespace Libreria.API.Middleware
 {
@@ -35,14 +36,49 @@ namespace Libreria.API.Middleware
 
                 logger.LogError(ex, ex.Message);
                 context.Response.ContentType = MediaTypeNames.Application.Json;
-                context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                var response = env.IsDevelopment()
-                    ? new CodeErrorException((int)HttpStatusCode.InternalServerError, ex.Message, ex.StackTrace)
-                    : new CodeErrorException((int)HttpStatusCode.InternalServerError);
+                var statuscode = (int)HttpStatusCode.InternalServerError;
+                var result = string.Empty;
 
-                var option = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
-                var json = JsonSerializer.Serialize(response, option);
-                await context.Response.WriteAsync(json);
+                switch (ex)
+                {
+
+                    case NotFoundException notFoundException:
+                        {
+                            statuscode = (int)HttpStatusCode.NotFound;
+                            break;
+                        }
+
+                    case ValidationException validationException:
+                        {
+                            statuscode = (int)HttpStatusCode.BadRequest;
+                            // serializamos a json toda la lista de errores en validacion y la convertimos en Json
+                            var validationJson = JsonConvert.SerializeObject(validationException.Errors);
+                            result = JsonConvert.SerializeObject(new CodeErrorException(statuscode, ex.Message, validationJson));
+                            break;
+                        }
+
+                    case BadRequestException badRequestException:
+                        {
+                            statuscode = (int)HttpStatusCode.BadRequest;
+                            break;
+                        }
+
+                    default:
+                        break;
+                }
+
+                if (string.IsNullOrEmpty(result))
+                    result = JsonConvert.SerializeObject(new CodeErrorException(statuscode, ex.Message, ex.StackTrace));
+
+
+                //var response = env.IsDevelopment()
+                //    ? new CodeErrorException((int)HttpStatusCode.InternalServerError, ex.Message, ex.StackTrace)
+                //    : new CodeErrorException((int)HttpStatusCode.InternalServerError);
+
+                //var option = new JsonSerializerOptions{PropertyNamingPolicy = JsonNamingPolicy.CamelCase};
+                //var json = JsonSerializer.Serialize(response, option);
+                context.Response.StatusCode = statuscode;
+                await context.Response.WriteAsync(result);
 
 
 
