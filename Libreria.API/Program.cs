@@ -1,3 +1,4 @@
+using Libreria.API.Middleware;
 using Libreria.Application;
 using Libreria.Infrastructure;
 
@@ -21,6 +22,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseHttpsRedirection();
 
