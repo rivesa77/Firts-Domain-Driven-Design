@@ -22,11 +22,7 @@
 
   <ItemGroup>
     <Folder Include="Features\Autores\Queries\" />
-    <Folder Include="Features\Editoriales\Commands\Delete\" />
-    <Folder Include="Features\Editoriales\Commands\Update\" />
     <Folder Include="Features\Editoriales\Queries\" />
-    <Folder Include="Features\Generos\Commands\Delete\" />
-    <Folder Include="Features\Generos\Commands\Update\" />
     <Folder Include="Features\Generos\Queries\" />
     <Folder Include="Features\Libros\Commands\Delete\" />
     <Folder Include="Features\Libros\Commands\Update\" />
