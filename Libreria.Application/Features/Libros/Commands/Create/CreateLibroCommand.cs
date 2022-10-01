@@ -11,6 +11,10 @@ namespace Libreria.Application.Features.Libros.Commands.Create
 
         public int EditorialId { get; set; }
 
+        public int GeneroId { get; set; }
+
+        public int AutorId { get; set; }
+
     }
 
 }

@@ -1,9 +1,4 @@
 ﻿using Libreria.Domain.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Libreria.Application.Contracts.Persistence
 {
@@ -14,6 +9,8 @@ namespace Libreria.Application.Contracts.Persistence
         IAutorRepository AutorRepository { get; }
         IGeneroRepository GeneroRepository { get; }
         IEditorialRepository EditorialRepository { get; }
+
+        ILibroAutorRepository LibroAutorRepository { get; }
 
         IAsyncRepository<TEntity> Repository<TEntity>() where TEntity : BaseDomainModel;
 

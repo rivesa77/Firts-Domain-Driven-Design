@@ -15,6 +15,7 @@ namespace Libreria.Infrastructure.Repositories
         private IAutorRepository _autorRepository;
         private IGeneroRepository _generoRepository;
         private IEditorialRepository _editorialRepository;
+        private ILibroAutorRepository _libroAutorRepository;
 
         // Vamos a inyectarlo no via constructor, si no via propiedades de la clase unitOfWork
         // Estas 2 variable son la implementacion definida en IUnitOfWork
@@ -22,7 +23,7 @@ namespace Libreria.Infrastructure.Repositories
         public IAutorRepository AutorRepository => _autorRepository ??= new AutorRepository(context);
         public IGeneroRepository GeneroRepository => _generoRepository ??= new GeneroRepository(context);
         public IEditorialRepository EditorialRepository => _editorialRepository ??= new EditorialRepository(context);
-
+        public ILibroAutorRepository LibroAutorRepository => _libroAutorRepository ??= new LibroAutorRepository(context);
 
         public UnitOfWork(LibreriaDbContext context)
         {

@@ -35,6 +35,28 @@ namespace Libreria.Application.Features.Libros.Commands.Create
                 throw new Exception("No se pudo insertar el record del libro");
             }
 
+
+            // Por ahora unica forma de poder añadir la relacion libro-> autor dentro del BD
+            // No creo que sea la forma mas elegante de hacerlo, pero por ahora funciona correctamente
+
+            var libroAutor = new LibroAutor
+            {
+                AutorId = request.AutorId,
+                LibroId = libroEntity.Id
+
+            };
+            
+            _unitOfWork.Repository<LibroAutor>().AddEntity(libroAutor);
+
+            var result2 = await _unitOfWork.Complete();
+
+            if (result2 <= 0)
+            {
+                _logger.LogError("No se inserto el record de libroAutor");
+                throw new Exception("No se pudo insertar el record de libroAutor");
+            }
+
+
             return libroEntity.Id;
         }
     }

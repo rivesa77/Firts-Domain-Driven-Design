@@ -21,6 +21,8 @@ namespace Libreria.Infrastructure
             services.AddScoped<IAutorRepository, AutorRepository>();
             services.AddScoped<IGeneroRepository, GeneroRepository>();
             services.AddScoped<IEditorialRepository, EditorialRepository>();
+            services.AddScoped<ILibroAutorRepository, LibroAutorRepository>();
+
             //services.Configure<EmailSettings>(c => configuration.GetSection("EmailSettings"));
             //services.AddTransient<IEmailService, EmailService>();
 
