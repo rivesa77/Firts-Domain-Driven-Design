@@ -1,6 +1,7 @@
 ﻿using Libreria.Application.Contracts.Persistence;
 using Libreria.Domain;
 using Libreria.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace Libreria.Infrastructure.Repositories
 {
@@ -16,5 +17,19 @@ namespace Libreria.Infrastructure.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public async Task<IEnumerable<Libro>> GetLibrosListQuery(string title)
+        {
+
+            return await context.Libro!.Include(x => x.AutoresLibro).ThenInclude(x=>x.Autor).ToListAsync();
+            
+        }
+
+        //public async Task<IEnumerable<Libro>> GetLibroList()
+        //{
+        //    return await context.Libro!.Where(c => c.Id>0).ToListAsync();
+        //    //Videos!.Where(c => c.CreateBy == username).ToListAsync();
+        //}
+
     }
 }

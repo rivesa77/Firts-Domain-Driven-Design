@@ -1,10 +1,12 @@
 ﻿using Libreria.Application.Features.Libros.Commands.Create;
 using Libreria.Application.Features.Libros.Commands.Delete;
 using Libreria.Application.Features.Libros.Commands.Update;
+using Libreria.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
-using System.Xml.Linq;
+using Libreria.Infrastructure.Repositories;
+using Libreria.Application.Features.Libros.Queries.GetLibrosList;
 
 namespace Libreria.API.Controllers
 {
@@ -38,7 +40,7 @@ namespace Libreria.API.Controllers
         [ProducesDefaultResponseType]
         //Tipo de valor a devolver al cliente
         [ProducesResponseType((int)HttpStatusCode.OK)]
-        public async Task<ActionResult> UpdateStreamer([FromBody] UpdateLibroCommand command)
+        public async Task<ActionResult> UpdateLibro([FromBody] UpdateLibroCommand command)
         {
             await mediator.Send(command);
             return Ok();
@@ -52,7 +54,7 @@ namespace Libreria.API.Controllers
         [ProducesDefaultResponseType]
         //Tipo de valor a devolver al cliente
         [ProducesResponseType((int)HttpStatusCode.OK)]
-        public async Task<ActionResult> DeleteStreamer(int id)
+        public async Task<ActionResult> DeleteLibro(int id)
         {
             var command = new DeleteLibroCommand
             {
@@ -60,6 +62,18 @@ namespace Libreria.API.Controllers
             };
             await mediator.Send(command);
             return Ok();
+        }
+
+
+        [HttpGet("{titulo}", Name = "GetLibro")]
+        //Tipo de valor a devolver al cliente
+        [ProducesResponseType(typeof(IEnumerable<Libro>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<IEnumerable<Libro>>> getLibrosList(string titulo)
+        {
+            var query = new GetLibrosListQuery(titulo);
+            // envio de la query a la capa aplication
+            var Libros = await mediator.Send(query);
+            return Ok(Libros);
         }
 
     }

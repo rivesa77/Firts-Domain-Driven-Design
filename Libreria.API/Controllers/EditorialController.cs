@@ -38,7 +38,7 @@ namespace Libreria.API.Controllers
         [ProducesDefaultResponseType]
         //Tipo de valor a devolver al cliente
         [ProducesResponseType((int)HttpStatusCode.OK)]
-        public async Task<ActionResult> UpdateStreamer([FromBody] UpdateEditorialCommand command)
+        public async Task<ActionResult> UpdateEditorial([FromBody] UpdateEditorialCommand command)
         {
             await mediator.Send(command);
             return Ok();
@@ -52,7 +52,7 @@ namespace Libreria.API.Controllers
         [ProducesDefaultResponseType]
         //Tipo de valor a devolver al cliente
         [ProducesResponseType((int)HttpStatusCode.OK)]
-        public async Task<ActionResult> DeleteStreamer(int id)
+        public async Task<ActionResult> DeleteEditorial(int id)
         {
             var command = new DeleteEditorialCommand
             {

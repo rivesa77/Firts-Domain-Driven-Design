@@ -11,7 +11,7 @@ namespace Libreria.Domain
         {
             Precios = new List<Precio>();
             Generos = new List<Genero>();
-            Autores = new List<Autor>();
+            AutoresLibro = new List<LibroAutor>();
         }
 
         public string Titulo { get; set; } = string.Empty;
@@ -24,7 +24,7 @@ namespace Libreria.Domain
 
         public virtual ICollection<Precio> Precios { get; set; }
         public virtual ICollection<Genero> Generos { get; set; }
-        public virtual ICollection<Autor> Autores { get; set; }
+        public virtual ICollection<LibroAutor> AutoresLibro { get; set; }
 
 
     }

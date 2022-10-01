@@ -20,6 +20,8 @@ namespace Libreria.Infrastructure.Persistence
         public DbSet<Genero>? Genero { get; set; }
         public DbSet<Autor>? Autor { get; set; }
 
+        public DbSet<LibroAutor>? LibroAutor { get; set; }
+
 
         // Se ejecuta antes de insertar/actualizar el valor en la BD para la auditoria
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
@@ -69,21 +71,31 @@ namespace Libreria.Infrastructure.Persistence
                 .WithOne(m => m.Editorial) // que entidad padre es 
                 .HasForeignKey(m => m.EditorialId) // donde esta la foreign key
                 .IsRequired(); // es requerido la relacion
-                
+
+            //modelBuilder.Entity<LibroAutor>()
+            //    .HasKey(k => new { k.AutorId, k.LibroId });
 
 
-            modelBuilder.Entity<Libro>()
-                .HasMany(m => m.Autores)
-                .WithMany(t => t.Libros)
-                .UsingEntity<LibroAutor>(
-                    p => p.HasKey(k => new { k.LibroId, k.AutorId })
-                );
+            modelBuilder.Entity<LibroAutor>().HasKey(k => new { k.LibroId, k.AutorId });
+
+
+
+            //modelBuilder.Entity<Libro>()
+            //    .HasMany(m => m.LibroAutor)
+            //    .WithMany(t => t.Libro)
+            //    .UsingEntity<LibroAutor>(
+            //        p => p.HasKey(k => new { k.LibroId, k.AutorId })
+            //    );
 
             modelBuilder.Entity<Libro>()
                 .HasMany(m => m.Generos)
                 .WithMany(t => t.Libros)
                 .UsingEntity<LibroGenero>(
                     p => p.HasKey(k => new { k.LibroId, k.GeneroId })
+
+
+
+
     );
 
         }
