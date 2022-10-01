@@ -76,7 +76,13 @@ namespace Libreria.Infrastructure.Persistence
             //    .HasKey(k => new { k.AutorId, k.LibroId });
 
 
-            modelBuilder.Entity<LibroAutor>().HasKey(k => new { k.LibroId, k.AutorId });
+            modelBuilder.Entity<Libro>()
+               .HasMany(m => m.Autores) //muchos libros
+               .WithMany(m => m.Libros) // que entidad padre es 
+               .UsingEntity<LibroAutor>(
+                    p => p.HasKey(e => new { e.LibroId, e.AutorId })
+                );
+               
 
 
 

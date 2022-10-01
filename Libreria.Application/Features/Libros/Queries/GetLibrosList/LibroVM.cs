@@ -17,7 +17,7 @@ namespace Libreria.Application.Features.Libros.Queries.GetLibrosList
 
         
 
-        public virtual ICollection<LibroAutor> AutoresLibro { get; set; }
+        public virtual ICollection<Autor> Autores { get; set; }
 
     }
 }

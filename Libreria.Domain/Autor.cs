@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Libreria.Domain
@@ -13,14 +14,14 @@ namespace Libreria.Domain
 
         public Autor()
         {
-            LibrosAutor = new List<LibroAutor>();
+            Libros = new List<Libro>();
         }
 
         public string Nombre { get; set; }
         public string Biografia { get; set; }
         public string Nacionalidad { get; set; }
-
-        public virtual ICollection<LibroAutor> LibrosAutor { get; set; }
+        [JsonIgnore]
+        public virtual ICollection<Libro> Libros{ get; set; }
 
     }
 
