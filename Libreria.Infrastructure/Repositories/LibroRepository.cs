@@ -21,7 +21,7 @@ namespace Libreria.Infrastructure.Repositories
         public async Task<IEnumerable<Libro>> GetLibrosListQuery()
         {
 
-            return await context.Libro!.Include(x => x.Autores).ToListAsync();
+            return await context.Libro!.Include(x => x.Autores).Include(x => x.Editorial).Include(x => x.Generos).ToListAsync();
             
         }
 

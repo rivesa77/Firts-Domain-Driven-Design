@@ -1,4 +1,5 @@
 ﻿using Libreria.Domain.Common;
+using System.Text.Json.Serialization;
 
 namespace Libreria.Domain
 {
@@ -12,6 +13,7 @@ namespace Libreria.Domain
 
         public string Nombre { get; set; }
 
+        [JsonIgnore]
         public virtual ICollection<Libro> Libros { get; set; }
 
     }
