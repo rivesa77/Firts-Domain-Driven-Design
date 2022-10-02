@@ -1,12 +1,12 @@
 ﻿using Libreria.Domain;
 
-namespace Libreria.Application.Features.Libros.Queries
+namespace Libreria.Application.Features.Libros.Queries.ViewModels
 {
-    public class LibroVM
+    public class LibroVM_Complete
     {
         public int Id { get; set; }
-        public string Titulo { get; set; } 
-        public string Asin { get; set; } 
+        public string Titulo { get; set; }
+        public string Asin { get; set; }
         public int Paginas { get; set; }
 
         public int EditorialId { get; set; }
@@ -17,6 +17,6 @@ namespace Libreria.Application.Features.Libros.Queries
 
         public virtual Editorial Editorial { get; set; }
 
-        
+
     }
 }

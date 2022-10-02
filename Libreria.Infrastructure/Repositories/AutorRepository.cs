@@ -1,6 +1,7 @@
 ﻿using Libreria.Application.Contracts.Persistence;
 using Libreria.Domain;
 using Libreria.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 namespace Libreria.Infrastructure.Repositories
 {
@@ -10,8 +11,12 @@ namespace Libreria.Infrastructure.Repositories
         {
 
         }
+        public async Task<IEnumerable<Autor>> GetAutorByName(string nombre)
+        {
+            return await context.Autor!.Where(l => l.Nombre.ToLower().Contains(nombre.ToLower())).Include(x => x.Libros).ToListAsync();
+        }
 
-
+        
     }
 
 }

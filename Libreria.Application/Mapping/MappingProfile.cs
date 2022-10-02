@@ -2,6 +2,7 @@
 using Libreria.Application.Features.Autores.Commands.Create;
 using Libreria.Application.Features.Autores.Commands.Delete;
 using Libreria.Application.Features.Autores.Commands.Update;
+using Libreria.Application.Features.Autores.Queries.ViewModels;
 using Libreria.Application.Features.Editoriales.Commands.Create;
 using Libreria.Application.Features.Editoriales.Commands.Delete;
 using Libreria.Application.Features.Editoriales.Commands.Update;
@@ -11,7 +12,7 @@ using Libreria.Application.Features.Generos.Commands.Update;
 using Libreria.Application.Features.Libros.Commands.Create;
 using Libreria.Application.Features.Libros.Commands.Delete;
 using Libreria.Application.Features.Libros.Commands.Update;
-using Libreria.Application.Features.Libros.Queries;
+using Libreria.Application.Features.Libros.Queries.ViewModels;
 using Libreria.Domain;
 
 namespace Libreria.Application.Mapping
@@ -26,7 +27,7 @@ namespace Libreria.Application.Mapping
             CreateMap<CreateAutorCommand, Autor>();
             CreateMap<UpdateAutorCommand, Autor>();
             CreateMap<DeleteAutorCommand, Autor>();
-
+            CreateMap<Autor, AutorVM_Complete>();
 
             // Genero
             CreateMap<CreateGeneroCommand, Genero>();
@@ -37,7 +38,7 @@ namespace Libreria.Application.Mapping
             CreateMap<CreateLibroCommand, Libro>();
             CreateMap<UpdateLibroCommand, Libro>();
             CreateMap<DeleteLibroCommand, Libro>();
-            CreateMap<Libro, LibroVM>();
+            CreateMap<Libro, LibroVM_Complete>();
 
             // Editorial
             CreateMap<CreateEditorialCommand, Editorial>();

@@ -1,6 +1,9 @@
 ﻿using Libreria.Application.Features.Autores.Commands.Create;
 using Libreria.Application.Features.Autores.Commands.Delete;
 using Libreria.Application.Features.Autores.Commands.Update;
+using Libreria.Application.Features.Autores.Queries.GetAutorByName;
+using Libreria.Application.Features.Libros.Queries.GetLibrosAutorByTitle;
+using Libreria.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -60,6 +63,18 @@ namespace Libreria.API.Controllers
             };
             await mediator.Send(command);
             return Ok();
+        }
+
+        [HttpGet("{nombre}", Name = "GetAutorByName")]
+        //Tipo de valor a devolver al cliente
+        [ProducesResponseType(typeof(IEnumerable<Autor>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<IEnumerable<Autor>>> GetAutorByName(string nombre)
+        {
+            var query = new GetAutorByName(nombre);
+            // envio de la query a la capa aplication
+            var autores = await mediator.Send(query);
+
+            return Ok(autores);
         }
 
     }

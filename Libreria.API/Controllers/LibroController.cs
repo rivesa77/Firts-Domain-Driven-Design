@@ -8,6 +8,7 @@ using System.Net;
 using Libreria.Infrastructure.Repositories;
 using Libreria.Application.Features.Libros.Queries.GetLibrosList;
 using Libreria.Application.Features.Libros.Queries.GetLibrosAutorByTitle;
+using Libreria.Application.Features.Libros.Queries.ViewModels;
 
 namespace Libreria.API.Controllers
 {

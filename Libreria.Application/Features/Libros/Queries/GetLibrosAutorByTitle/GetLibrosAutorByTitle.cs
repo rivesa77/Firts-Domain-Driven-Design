@@ -1,9 +1,10 @@
-﻿using MediatR;
+﻿using Libreria.Application.Features.Libros.Queries.ViewModels;
+using MediatR;
 
 namespace Libreria.Application.Features.Libros.Queries.GetLibrosAutorByTitle
 {
 
-    public class GetLibrosAutorByTitle : IRequest<List<LibroVM>>
+    public class GetLibrosAutorByTitle : IRequest<List<LibroVM_Complete>>
     {
         // Parametro de entrada
         public string Titulo { get; set; } = String.Empty;
