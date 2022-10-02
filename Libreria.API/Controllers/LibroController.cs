@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using Libreria.Infrastructure.Repositories;
 using Libreria.Application.Features.Libros.Queries.GetLibrosList;
+using Libreria.Application.Features.Libros.Queries.GetLibrosAutorByTitle;
 
 namespace Libreria.API.Controllers
 {
@@ -74,6 +75,18 @@ namespace Libreria.API.Controllers
             // envio de la query a la capa aplication
             var Libros = await mediator.Send(query);
             
+            return Ok(Libros);
+        }
+
+        [HttpGet("{titulo}",Name = "GetLibrosAutorByTitle")]
+        //Tipo de valor a devolver al cliente
+        [ProducesResponseType(typeof(IEnumerable<Libro>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<IEnumerable<Libro>>> GetLibrosAutorByTitle(string titulo)
+        {
+            var query = new GetLibrosAutorByTitle(titulo);
+            // envio de la query a la capa aplication
+            var Libros = await mediator.Send(query);
+
             return Ok(Libros);
         }
 

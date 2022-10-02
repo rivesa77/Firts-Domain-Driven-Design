@@ -26,8 +26,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Libreria.Infrastructure", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Libreria.API", "Libreria.API\Libreria.API.csproj", "{AEAD3F2B-6C6B-4EA2-BC73-941ADD6DC842}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreacionContextoInicial", "CreacionContextoInicial\CreacionContextoInicial.csproj", "{D579DAD9-9FB3-49A3-A2C8-EA1935D98BB6}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,14 +66,6 @@ Global
 		{AEAD3F2B-6C6B-4EA2-BC73-941ADD6DC842}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AEAD3F2B-6C6B-4EA2-BC73-941ADD6DC842}.Release|x86.ActiveCfg = Release|x86
 		{AEAD3F2B-6C6B-4EA2-BC73-941ADD6DC842}.Release|x86.Build.0 = Release|x86
-		{D579DAD9-9FB3-49A3-A2C8-EA1935D98BB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D579DAD9-9FB3-49A3-A2C8-EA1935D98BB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D579DAD9-9FB3-49A3-A2C8-EA1935D98BB6}.Debug|x86.ActiveCfg = Debug|x86
-		{D579DAD9-9FB3-49A3-A2C8-EA1935D98BB6}.Debug|x86.Build.0 = Debug|x86
-		{D579DAD9-9FB3-49A3-A2C8-EA1935D98BB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D579DAD9-9FB3-49A3-A2C8-EA1935D98BB6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D579DAD9-9FB3-49A3-A2C8-EA1935D98BB6}.Release|x86.ActiveCfg = Release|x86
-		{D579DAD9-9FB3-49A3-A2C8-EA1935D98BB6}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

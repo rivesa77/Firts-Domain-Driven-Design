@@ -20,6 +20,7 @@ namespace Libreria.Domain
         public string Nombre { get; set; }
         public string Biografia { get; set; }
         public string Nacionalidad { get; set; }
+        
         [JsonIgnore]
         public virtual ICollection<Libro> Libros{ get; set; }
 

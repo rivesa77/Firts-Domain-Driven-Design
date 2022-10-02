@@ -4,7 +4,7 @@ namespace Libreria.Application.Contracts.Persistence
 {
     public interface ILibroRepository : IAsyncRepository<Libro>
     {
-        Task<Libro> GetLibroByTitle(string title);
+        Task<IEnumerable<Libro>> GetLibrosAutorByTitle(string titulo);
 
         Task<IEnumerable<Libro>> GetLibrosListQuery();
     }

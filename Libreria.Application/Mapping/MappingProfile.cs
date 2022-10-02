@@ -11,7 +11,7 @@ using Libreria.Application.Features.Generos.Commands.Update;
 using Libreria.Application.Features.Libros.Commands.Create;
 using Libreria.Application.Features.Libros.Commands.Delete;
 using Libreria.Application.Features.Libros.Commands.Update;
-using Libreria.Application.Features.Libros.Queries.GetLibrosList;
+using Libreria.Application.Features.Libros.Queries;
 using Libreria.Domain;
 
 namespace Libreria.Application.Mapping

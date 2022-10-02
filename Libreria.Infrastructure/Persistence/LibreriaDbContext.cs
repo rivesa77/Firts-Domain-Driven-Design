@@ -19,7 +19,6 @@ namespace Libreria.Infrastructure.Persistence
         public DbSet<Editorial>? Editorial { get; set; }
         public DbSet<Genero>? Genero { get; set; }
         public DbSet<Autor>? Autor { get; set; }
-
         public DbSet<LibroAutor>? LibroAutor { get; set; }
 
 
@@ -72,10 +71,8 @@ namespace Libreria.Infrastructure.Persistence
                 .HasForeignKey(m => m.EditorialId) // donde esta la foreign key
                 .IsRequired(); // es requerido la relacion
 
-            //modelBuilder.Entity<LibroAutor>()
-            //    .HasKey(k => new { k.AutorId, k.LibroId });
 
-
+            
             modelBuilder.Entity<Libro>()
                .HasMany(m => m.Autores) //muchos libros
                .WithMany(m => m.Libros) // que entidad padre es                
@@ -83,27 +80,17 @@ namespace Libreria.Infrastructure.Persistence
                .UsingEntity<LibroAutor>(
                     p => p.HasKey(e => new { e.LibroId, e.AutorId,e.Id })
                 );
-               
-
-
-
-            //modelBuilder.Entity<Libro>()
-            //    .HasMany(m => m.LibroAutor)
-            //    .WithMany(t => t.Libro)
-            //    .UsingEntity<LibroAutor>(
-            //        p => p.HasKey(k => new { k.LibroId, k.AutorId })
-            //    );
 
             modelBuilder.Entity<Libro>()
                 .HasMany(m => m.Generos)
                 .WithMany(t => t.Libros)
                 .UsingEntity<LibroGenero>(
-                    p => p.HasKey(k => new { k.LibroId, k.GeneroId, k.Id })
+                    p => p.HasKey(k => new { k.LibroId, k.GeneroId, k.Id }));
 
 
 
 
-    );
+
 
         }
 
