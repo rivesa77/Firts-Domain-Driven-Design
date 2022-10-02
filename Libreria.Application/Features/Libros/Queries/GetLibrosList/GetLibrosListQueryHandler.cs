@@ -27,7 +27,7 @@ namespace Libreria.Application.Features.Libros.Queries.GetLibrosList
 
         public async Task<List<LibroVM>> Handle(GetLibrosListQuery request, CancellationToken cancellationToken)
         {
-            var libroList = await unitOfWork.LibroRepository.GetLibrosListQuery(request.titulo);
+            var libroList = await unitOfWork.LibroRepository.GetLibrosListQuery();
 
             // Mapeamos el Libro a tipo LibroVM
             return mapper.Map<List<LibroVM>>(libroList);

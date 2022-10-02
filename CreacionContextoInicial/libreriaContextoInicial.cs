@@ -8,7 +8,7 @@ namespace CreacionContextoInicial
     public class libreriaContextoInicial : DbContext
     {
 
-        private const string conexion = @"Data Source = RICHI-PC;Initial Catalog=Libreria;Integrated Security=true";
+        private const string conexion = @"Data Source = RICHI-PC;Initial Catalog=Libreria2;Integrated Security=true";
 
         public DbSet<Libro>? Libro { get; set; }
         public DbSet<Autor>? Autor { get; set; }

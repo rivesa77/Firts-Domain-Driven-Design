@@ -78,9 +78,10 @@ namespace Libreria.Infrastructure.Persistence
 
             modelBuilder.Entity<Libro>()
                .HasMany(m => m.Autores) //muchos libros
-               .WithMany(m => m.Libros) // que entidad padre es 
+               .WithMany(m => m.Libros) // que entidad padre es                
+               
                .UsingEntity<LibroAutor>(
-                    p => p.HasKey(e => new { e.LibroId, e.AutorId })
+                    p => p.HasKey(e => new { e.LibroId, e.AutorId,e.Id })
                 );
                
 
@@ -97,7 +98,7 @@ namespace Libreria.Infrastructure.Persistence
                 .HasMany(m => m.Generos)
                 .WithMany(t => t.Libros)
                 .UsingEntity<LibroGenero>(
-                    p => p.HasKey(k => new { k.LibroId, k.GeneroId })
+                    p => p.HasKey(k => new { k.LibroId, k.GeneroId, k.Id })
 
 
 

@@ -18,7 +18,7 @@ namespace Libreria.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Libro>> GetLibrosListQuery(string title)
+        public async Task<IEnumerable<Libro>> GetLibrosListQuery()
         {
 
             return await context.Libro!.Include(x => x.Autores).ToListAsync();

@@ -1,9 +1,4 @@
 ﻿using Libreria.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Libreria.Application.Features.Libros.Queries.GetLibrosList
 {
@@ -14,8 +9,6 @@ namespace Libreria.Application.Features.Libros.Queries.GetLibrosList
         public int Paginas { get; set; }
 
         public int EditorialId { get; set; }
-
-        
 
         public virtual ICollection<Autor> Autores { get; set; }
 

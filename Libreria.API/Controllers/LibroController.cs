@@ -65,12 +65,12 @@ namespace Libreria.API.Controllers
         }
 
 
-        [HttpGet("{titulo}", Name = "GetLibro")]
+        [HttpGet( Name = "GetLibroList")]
         //Tipo de valor a devolver al cliente
         [ProducesResponseType(typeof(IEnumerable<Libro>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<Libro>>> getLibrosList(string titulo)
+        public async Task<ActionResult<IEnumerable<Libro>>> getLibrosList()
         {
-            var query = new GetLibrosListQuery(titulo);
+            var query = new GetLibrosListQuery();
             // envio de la query a la capa aplication
             var Libros = await mediator.Send(query);
             

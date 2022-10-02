@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace CreacionContextoInicial.Migrations
+namespace Libreria.Infrastructure.Migrations
 {
-    public partial class ModelosInicial : Migration
+    public partial class Creacion_TablasRelaciones : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -89,48 +89,60 @@ namespace CreacionContextoInicial.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AutorLibro",
+                name: "LibroAutor",
                 columns: table => new
                 {
-                    AutoresId = table.Column<int>(type: "int", nullable: false),
-                    LibrosId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    LibroId = table.Column<int>(type: "int", nullable: false),
+                    AutorId = table.Column<int>(type: "int", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    LastModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AutorLibro", x => new { x.AutoresId, x.LibrosId });
+                    table.PrimaryKey("PK_LibroAutor", x => new { x.LibroId, x.AutorId, x.Id });
                     table.ForeignKey(
-                        name: "FK_AutorLibro_Autor_AutoresId",
-                        column: x => x.AutoresId,
+                        name: "FK_LibroAutor_Autor_AutorId",
+                        column: x => x.AutorId,
                         principalTable: "Autor",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_AutorLibro_Libro_LibrosId",
-                        column: x => x.LibrosId,
+                        name: "FK_LibroAutor_Libro_LibroId",
+                        column: x => x.LibroId,
                         principalTable: "Libro",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "GeneroLibro",
+                name: "LibroGenero",
                 columns: table => new
                 {
-                    GenerosId = table.Column<int>(type: "int", nullable: false),
-                    LibrosId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    LibroId = table.Column<int>(type: "int", nullable: false),
+                    GeneroId = table.Column<int>(type: "int", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    LastModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_GeneroLibro", x => new { x.GenerosId, x.LibrosId });
+                    table.PrimaryKey("PK_LibroGenero", x => new { x.LibroId, x.GeneroId, x.Id });
                     table.ForeignKey(
-                        name: "FK_GeneroLibro_Genero_GenerosId",
-                        column: x => x.GenerosId,
+                        name: "FK_LibroGenero_Genero_GeneroId",
+                        column: x => x.GeneroId,
                         principalTable: "Genero",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_GeneroLibro_Libro_LibrosId",
-                        column: x => x.LibrosId,
+                        name: "FK_LibroGenero_Libro_LibroId",
+                        column: x => x.LibroId,
                         principalTable: "Libro",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -162,19 +174,19 @@ namespace CreacionContextoInicial.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_AutorLibro_LibrosId",
-                table: "AutorLibro",
-                column: "LibrosId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_GeneroLibro_LibrosId",
-                table: "GeneroLibro",
-                column: "LibrosId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Libro_EditorialId",
                 table: "Libro",
                 column: "EditorialId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LibroAutor_AutorId",
+                table: "LibroAutor",
+                column: "AutorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_LibroGenero_GeneroId",
+                table: "LibroGenero",
+                column: "GeneroId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Precio_LibroId",
@@ -185,10 +197,10 @@ namespace CreacionContextoInicial.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "AutorLibro");
+                name: "LibroAutor");
 
             migrationBuilder.DropTable(
-                name: "GeneroLibro");
+                name: "LibroGenero");
 
             migrationBuilder.DropTable(
                 name: "Precio");

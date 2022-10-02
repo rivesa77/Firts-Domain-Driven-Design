@@ -6,6 +6,6 @@ namespace Libreria.Application.Contracts.Persistence
     {
         Task<Libro> GetLibroByTitle(string title);
 
-        Task<IEnumerable<Libro>> GetLibrosListQuery(string title);
+        Task<IEnumerable<Libro>> GetLibrosListQuery();
     }
 }
