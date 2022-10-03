@@ -2,16 +2,9 @@
 using Libreria.Application.Contracts.Persistence;
 using Libreria.Application.Features.Libros.Queries.ViewModels;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Libreria.Application.Features.Libros.Queries.GetLibrosList
 {
-
-
     public class GetLibrosListQueryHandler : IRequestHandler<GetLibrosListQuery, List<LibroVM_Complete>>
     {
 

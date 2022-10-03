@@ -1,7 +1,6 @@
 ﻿using Libreria.Domain;
 using Libreria.Domain.Common;
 using Microsoft.EntityFrameworkCore;
-using System.IO;
 
 namespace Libreria.Infrastructure.Persistence
 {

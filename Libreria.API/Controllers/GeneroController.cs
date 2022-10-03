@@ -4,7 +4,6 @@ using Libreria.Application.Features.Generos.Commands.Update;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
-using System.Xml.Linq;
 
 namespace Libreria.API.Controllers
 {

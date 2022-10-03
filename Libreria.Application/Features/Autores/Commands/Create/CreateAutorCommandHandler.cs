@@ -3,7 +3,6 @@ using Libreria.Application.Contracts.Persistence;
 using Libreria.Domain;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using System.IO;
 
 namespace Libreria.Application.Features.Autores.Commands.Create
 {

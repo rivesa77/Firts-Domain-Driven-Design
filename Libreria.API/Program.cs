@@ -2,7 +2,6 @@ using Libreria.API.Middleware;
 using Libreria.Application;
 using Libreria.Infrastructure;
 using System.Text.Json.Serialization;
-using Newtonsoft.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 

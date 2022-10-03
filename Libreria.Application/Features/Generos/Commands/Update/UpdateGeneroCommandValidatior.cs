@@ -1,10 +1,4 @@
 ﻿using FluentValidation;
-using Libreria.Application.Features.Editoriales.Commands.Update;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Libreria.Application.Features.Generos.Commands.Update
 {

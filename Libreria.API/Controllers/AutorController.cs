@@ -2,12 +2,10 @@
 using Libreria.Application.Features.Autores.Commands.Delete;
 using Libreria.Application.Features.Autores.Commands.Update;
 using Libreria.Application.Features.Autores.Queries.GetAutorByName;
-using Libreria.Application.Features.Libros.Queries.GetLibrosAutorByTitle;
 using Libreria.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
-using System.Xml.Linq;
 
 namespace Libreria.API.Controllers
 {
