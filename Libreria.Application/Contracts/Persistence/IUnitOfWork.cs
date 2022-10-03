@@ -9,9 +9,7 @@ namespace Libreria.Application.Contracts.Persistence
         IAutorRepository AutorRepository { get; }
         IGeneroRepository GeneroRepository { get; }
         IEditorialRepository EditorialRepository { get; }
-
         ILibroAutorRepository LibroAutorRepository { get; }
-
         IAsyncRepository<TEntity> Repository<TEntity>() where TEntity : BaseDomainModel;
 
         Task<int> Complete();

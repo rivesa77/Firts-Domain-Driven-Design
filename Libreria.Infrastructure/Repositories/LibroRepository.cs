@@ -18,20 +18,26 @@ namespace Libreria.Infrastructure.Repositories
             return await context.Libro!.Where(l=>l.Titulo.ToLower().Contains(titulo.ToLower())).Include(x => x.Autores).ToListAsync();
         }
 
-        public async Task<IEnumerable<Libro>> GetLibrosListQuery()
+        /// <summary>
+        /// Retorna listado de todos los libros con todas sus entidades relacionadas
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IEnumerable<Libro>> GetLibrosList()
         {
-
             //return await context.Libro!.Include(x => x.Autores).AsSplitQuery().Include(x => x.Editorial).AsSplitQuery().Include(x => x.Generos).AsSplitQuery().ToListAsync();
-
             return await context.Libro!.Include(x => x.Autores).AsSplitQuery().Include(x => x.Editorial).AsSplitQuery().Include(x => x.Generos).AsSplitQuery().ToListAsync();
-
         }
 
-        //public async Task<IEnumerable<Libro>> GetLibroList()
-        //{
-        //    return await context.Libro!.Where(c => c.Id>0).ToListAsync();
-        //    //Videos!.Where(c => c.CreateBy == username).ToListAsync();
-        //}
 
+        /// <summary>
+        /// Obtiene Libro por Id
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public async Task<Libro> GetLibroById(int Id)
+        {
+            //return await context.Libro!.FindAsync(Id);
+            return await context.Libro!.Where(x=>x.Id == Id).Include(x => x.Autores).AsSplitQuery().Include(x => x.Editorial).AsSplitQuery().Include(x => x.Generos).AsSplitQuery().FirstOrDefaultAsync();
+        }
     }
 }

@@ -1,14 +1,13 @@
 ﻿using Libreria.Application.Features.Libros.Commands.Create;
 using Libreria.Application.Features.Libros.Commands.Delete;
 using Libreria.Application.Features.Libros.Commands.Update;
+using Libreria.Application.Features.Libros.Queries.GetLibroById;
+using Libreria.Application.Features.Libros.Queries.GetLibrosAutorByTitle;
+using Libreria.Application.Features.Libros.Queries.GetLibrosList;
 using Libreria.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
-using Libreria.Infrastructure.Repositories;
-using Libreria.Application.Features.Libros.Queries.GetLibrosList;
-using Libreria.Application.Features.Libros.Queries.GetLibrosAutorByTitle;
-using Libreria.Application.Features.Libros.Queries.ViewModels;
 
 namespace Libreria.API.Controllers
 {
@@ -24,6 +23,7 @@ namespace Libreria.API.Controllers
         {
             this.mediator = mediator;
         }
+
 
         // Name = Nombre que va tener el metodo para el cliente dentro de la url
         [HttpPost(Name = "CreateLibro")]
@@ -67,7 +67,7 @@ namespace Libreria.API.Controllers
         }
 
 
-        [HttpGet( Name = "GetLibroList")]
+        [HttpGet( Name = "Query/GetLibroList")]
         //Tipo de valor a devolver al cliente
         [ProducesResponseType(typeof(IEnumerable<Libro>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<Libro>>> getLibrosList()
@@ -78,8 +78,9 @@ namespace Libreria.API.Controllers
             
             return Ok(Libros);
         }
-
-        [HttpGet("{titulo}",Name = "GetLibrosAutorByTitle")]
+        
+      
+        [HttpGet("Query/GetLibrosAutorByTitle/{titulo}", Name = "GetLibrosAutorByTitle")]
         //Tipo de valor a devolver al cliente
         [ProducesResponseType(typeof(IEnumerable<Libro>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<Libro>>> GetLibrosAutorByTitle(string titulo)
@@ -89,6 +90,24 @@ namespace Libreria.API.Controllers
             var Libros = await mediator.Send(query);
             
             return Ok(Libros);
+        }
+
+        ///// <summary>
+        ///// adasdas
+        ///// </summary>
+        ///// <param name="Id"></param>
+        ///// <returns></returns>
+        [HttpGet("Query/GetLibroById/{Id}", Name = "GetLibroById")]
+        
+        //Tipo de valor a devolver al cliente
+        [ProducesResponseType(typeof(Libro), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<Libro>> GetLibroById(int Id)
+        {
+            var query = new GetLibroById(Id);
+            // envio de la query a la capa aplication
+            var Libro = await mediator.Send(query);
+
+            return Ok(Libro);
         }
 
     }

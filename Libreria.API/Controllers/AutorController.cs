@@ -65,7 +65,7 @@ namespace Libreria.API.Controllers
             return Ok();
         }
 
-        [HttpGet("{nombre}", Name = "GetAutorByName")]
+        [HttpGet("Query/GetAutorByName/{nombre}", Name = "GetAutorByName")]
         //Tipo de valor a devolver al cliente
         [ProducesResponseType(typeof(IEnumerable<Autor>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<Autor>>> GetAutorByName(string nombre)
