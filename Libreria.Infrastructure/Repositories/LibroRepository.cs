@@ -21,8 +21,10 @@ namespace Libreria.Infrastructure.Repositories
         public async Task<IEnumerable<Libro>> GetLibrosListQuery()
         {
 
-            return await context.Libro!.Include(x => x.Autores).Include(x => x.Editorial).Include(x => x.Generos).ToListAsync();
-            
+            //return await context.Libro!.Include(x => x.Autores).AsSplitQuery().Include(x => x.Editorial).AsSplitQuery().Include(x => x.Generos).AsSplitQuery().ToListAsync();
+
+            return await context.Libro!.Include(x => x.Autores).AsSplitQuery().Include(x => x.Editorial).AsSplitQuery().Include(x => x.Generos).AsSplitQuery().ToListAsync();
+
         }
 
         //public async Task<IEnumerable<Libro>> GetLibroList()

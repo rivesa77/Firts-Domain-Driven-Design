@@ -18,5 +18,6 @@ namespace Libreria.Application.Features.Libros.Queries.ViewModels
         public virtual Editorial Editorial { get; set; }
 
 
+
     }
 }

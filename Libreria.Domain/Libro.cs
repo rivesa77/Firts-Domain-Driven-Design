@@ -1,9 +1,11 @@
 ﻿using Libreria.Domain.Common;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Runtime.Serialization;
 
 namespace Libreria.Domain
 {
 
-
+    
     public class Libro : BaseDomainModel
     {
 

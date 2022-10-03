@@ -13,7 +13,6 @@ namespace Libreria.Domain
         }
 
         public string Nombre { get; set; } = string.Empty;
-
         [JsonIgnore]
         public virtual ICollection<Libro> Libros { get; set; }
 

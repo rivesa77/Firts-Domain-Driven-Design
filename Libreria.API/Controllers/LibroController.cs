@@ -87,7 +87,7 @@ namespace Libreria.API.Controllers
             var query = new GetLibrosAutorByTitle(titulo);
             // envio de la query a la capa aplication
             var Libros = await mediator.Send(query);
-
+            
             return Ok(Libros);
         }
 
