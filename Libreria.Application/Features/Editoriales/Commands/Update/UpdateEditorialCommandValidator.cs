@@ -14,7 +14,7 @@ namespace Libreria.Application.Features.Editoriales.Commands.Update
             RuleFor(p => p.Nombre)
                 .NotEmpty().WithMessage("{Nombre} no puede ser en blanco")
                 .NotNull().WithMessage("{Nombre} no puede ser nulo")
-                .MaximumLength(70).WithMessage("{Nombre} no exceder 50 caracteres");
+                .MaximumLength(70).WithMessage("{Nombre} no exceder 70 caracteres");
 
 
         }

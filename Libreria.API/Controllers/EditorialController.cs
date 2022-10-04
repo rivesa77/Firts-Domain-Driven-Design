@@ -10,7 +10,7 @@ namespace Libreria.API.Controllers
 
     [ApiController]
     // Ruta
-    [Route("api/V1/[Controller]")]
+    [Route("api/Libreria/[Controller]")]
     public class EditorialController : ControllerBase
     {
         private readonly IMediator mediator;

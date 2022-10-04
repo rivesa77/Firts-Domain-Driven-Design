@@ -5,6 +5,7 @@ using Libreria.Application.Features.Autores.Queries.GetAutorByName;
 using Libreria.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
 namespace Libreria.API.Controllers
@@ -12,7 +13,7 @@ namespace Libreria.API.Controllers
 
     [ApiController]
     // Ruta
-    [Route("api/V1/[Controller]")]
+    [Route("api/Libreria/[Controller]")]
     public class AutorController : ControllerBase
     {
         private readonly IMediator mediator;
@@ -22,7 +23,7 @@ namespace Libreria.API.Controllers
             this.mediator = mediator;
         }
 
-        // Name = Nombre que va tener el metodo para el cliente dentro de la url
+ 
         [HttpPost(Name = "CreateAutor")]
         //Tipo de valor a devolver al cliente
         [ProducesResponseType((int)HttpStatusCode.OK)]
@@ -63,6 +64,11 @@ namespace Libreria.API.Controllers
             return Ok();
         }
 
+        [SwaggerOperation(
+            Summary = "Obtiene todos las entidades Autor que contengan el nombre ",
+            Description = "Devuelve Autor con las entidades Libro,Genero y Editorial asociadas a Autor",
+            OperationId = "GetAutorByName"
+        )]
         [HttpGet("Query/GetAutorByName/{nombre}", Name = "GetAutorByName")]
         //Tipo de valor a devolver al cliente
         [ProducesResponseType(typeof(IEnumerable<Autor>), (int)HttpStatusCode.OK)]

@@ -13,7 +13,7 @@ namespace Libreria.Application.Features.Autores.Commands.Update
             RuleFor(p => p.Nombre)
                 .NotEmpty().WithMessage("{Nombre} no puede ser en blanco")
                 .NotNull().WithMessage("{Nombre} no puede ser nulo")
-                .MaximumLength(70).WithMessage("{Nombre} no exceder 50 caracteres");
+                .MaximumLength(70).WithMessage("{Nombre} no exceder 70 caracteres");
 
 
             // Validacion para el nombre
@@ -21,7 +21,7 @@ namespace Libreria.Application.Features.Autores.Commands.Update
             RuleFor(p => p.Nacionalidad)
                 .NotEmpty().WithMessage("{Nacionalidad} no puede ser en blanco")
                 .NotNull().WithMessage("{Nacionalidad} no puede ser nulo")
-                .MaximumLength(25).WithMessage("{Nacionalidad} no exceder 50 caracteres");
+                .MaximumLength(25).WithMessage("{Nacionalidad} no exceder 25 caracteres");
 
         }
     }

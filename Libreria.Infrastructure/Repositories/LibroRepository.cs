@@ -13,7 +13,7 @@ namespace Libreria.Infrastructure.Repositories
 
         }
 
-        public async Task<IEnumerable<Libro>> GetLibrosAutorByTitle(string titulo)
+        public async Task<IEnumerable<Libro>> GetLibrosByTitle(string titulo)
         {
             return await context.Libro!.Where(l=>l.Titulo.ToLower().Contains(titulo.ToLower())).Include(x => x.Autores).ToListAsync();
         }

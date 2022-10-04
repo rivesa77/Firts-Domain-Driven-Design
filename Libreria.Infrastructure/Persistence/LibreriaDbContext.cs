@@ -9,8 +9,6 @@ namespace Libreria.Infrastructure.Persistence
     public class LibreriaDbContext : DbContext
     {
 
-        //private const string conexion = @"Data Source = RICHI-PC;Initial Catalog=Streamer;Integrated Security=true";
-
         public LibreriaDbContext(DbContextOptions<LibreriaDbContext> options) : base(options)
         {
         }
@@ -61,12 +59,6 @@ namespace Libreria.Infrastructure.Persistence
             /// relacion logica por codigo
             /// 
 
-            //modelBuilder.Entity<Libro>()
-            //    .HasOne(m => m.Editorial)
-            //    .WithMany(m => m.Libros) // que entidad padre es 
-            //    .HasForeignKey(m => m) // donde esta la foreign key
-            //    .IsRequired() // es requerido la relacion
-            //    .OnDelete(DeleteBehavior.Restrict); // con borrado en cascada
 
             modelBuilder.Entity<Editorial>()
                 .HasMany(m => m.Libros) //muchos libros
@@ -90,15 +82,12 @@ namespace Libreria.Infrastructure.Persistence
                 .UsingEntity<LibroGenero>(
                     p => p.HasKey(k => new { k.LibroId, k.GeneroId, k.Id }));
 
-
             modelBuilder.Entity<Editorial>().HasData(LibreriaDbContextSeed.GetPreconfiguredEditorial());
             modelBuilder.Entity<Autor>().HasData(LibreriaDbContextSeed.GetPreconfiguredAutor());
             modelBuilder.Entity<Genero>().HasData(LibreriaDbContextSeed.GetPreconfiguredGenero());
             modelBuilder.Entity<Libro>().HasData(LibreriaDbContextSeed.GetPreconfiguredLibro());
             modelBuilder.Entity<LibroAutor>().HasData(LibreriaDbContextSeed.GetPreconfiguredLibroAutor());
             modelBuilder.Entity<LibroGenero>().HasData(LibreriaDbContextSeed.GetPreconfiguredLibroGenero());
-
-
 
         }
 

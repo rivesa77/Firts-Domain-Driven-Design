@@ -2,19 +2,21 @@
 using Libreria.Application.Features.Libros.Commands.Delete;
 using Libreria.Application.Features.Libros.Commands.Update;
 using Libreria.Application.Features.Libros.Queries.GetLibroById;
-using Libreria.Application.Features.Libros.Queries.GetLibrosAutorByTitle;
+using Libreria.Application.Features.Libros.Queries.GetLibrosByTitle;
 using Libreria.Application.Features.Libros.Queries.GetLibrosList;
 using Libreria.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
+
 
 namespace Libreria.API.Controllers
 {
 
     [ApiController]
     // Ruta
-    [Route("api/V1/[Controller]")]
+    [Route("api/Libreria/[Controller]")]
     public class LibroController : ControllerBase
     {
         private readonly IMediator mediator;
@@ -25,7 +27,11 @@ namespace Libreria.API.Controllers
         }
 
 
-        // Name = Nombre que va tener el metodo para el cliente dentro de la url
+        [SwaggerOperation(
+             Summary = "Alta para un nuevo libro pero obligando a que asigne el IdAutor y el IdGenero",
+             Description = "Genera el Libro ,la Relacion LibroAutor y la relacion LibroGenero",
+             OperationId = "CreateAutor"
+         )]
         [HttpPost(Name = "CreateLibro")]
         //Tipo de valor a devolver al cliente
         [ProducesResponseType((int)HttpStatusCode.OK)]
@@ -66,8 +72,12 @@ namespace Libreria.API.Controllers
             return Ok();
         }
 
-
-        [HttpGet( Name = "Query/GetLibroList")]
+        [SwaggerOperation(
+            Summary = "Obtiene todos las entidades Libro ",
+            Description = "Devuelve Libro con todas sus entidades relacionadas cargadas",
+            OperationId = "GetLibroList"
+        )]
+        [HttpGet(Name = "Query/GetLibroList")]
         //Tipo de valor a devolver al cliente
         [ProducesResponseType(typeof(IEnumerable<Libro>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<Libro>>> getLibrosList()
@@ -75,32 +85,38 @@ namespace Libreria.API.Controllers
             var query = new GetLibrosListQuery();
             // envio de la query a la capa aplication
             var Libros = await mediator.Send(query);
-            
-            return Ok(Libros);
-        }
-        
-      
-        [HttpGet("Query/GetLibrosAutorByTitle/{titulo}", Name = "GetLibrosAutorByTitle")]
-        //Tipo de valor a devolver al cliente
-        [ProducesResponseType(typeof(IEnumerable<Libro>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<Libro>>> GetLibrosAutorByTitle(string titulo)
-        {
-            var query = new GetLibrosAutorByTitle(titulo);
-            // envio de la query a la capa aplication
-            var Libros = await mediator.Send(query);
-            
+
             return Ok(Libros);
         }
 
-        ///// <summary>
-        ///// adasdas
-        ///// </summary>
-        ///// <param name="Id"></param>
-        ///// <returns></returns>
-        [HttpGet("Query/GetLibroById/{Id}", Name = "GetLibroById")]
-        
+
+        [SwaggerOperation(
+            Summary = "Obtiene entidad Libro que contenga el titulo",
+            Description = "Devuelve Libro con todas sus entidades relacionadas cargadas",
+            OperationId = "GetLibrosByTitle"
+        )]
+        [HttpGet("Query/GetLibrosByTitle/{titulo}", Name = "GetLibrosByTitle")]
+        //Tipo de valor a devolver al cliente
+        [ProducesResponseType(typeof(IEnumerable<Libro>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<IEnumerable<Libro>>> GetLibrosByTitle(string titulo)
+        {
+            var query = new GetLibrosByTitle(titulo);
+            // envio de la query a la capa aplication
+            var Libros = await mediator.Send(query);
+
+            return Ok(Libros);
+        }
+
+
+        [SwaggerOperation(
+            Summary = "Obtiene entidad Libro por Id",
+            Description = "Devuelve Libro con todas sus entidades relacionadas cargadas",
+            OperationId = "GetLibroById"
+        )]
+        [HttpGet("Query/GetLibroById/{Id}", Name = "GetLibroById")]        
         //Tipo de valor a devolver al cliente
         [ProducesResponseType(typeof(Libro), (int)HttpStatusCode.OK)]
+        
         public async Task<ActionResult<Libro>> GetLibroById(int Id)
         {
             var query = new GetLibroById(Id);

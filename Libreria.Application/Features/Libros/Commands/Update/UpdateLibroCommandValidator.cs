@@ -14,17 +14,17 @@ namespace Libreria.Application.Features.Libros.Commands.Update
             RuleFor(p => p.Titulo)
                 .NotEmpty().WithMessage("{Titulo} no puede ser en blanco")
                 .NotNull().WithMessage("{Titulo} no puede ser nulo")
-                .MaximumLength(70).WithMessage("{Titulo} no exceder 50 caracteres");
+                .MaximumLength(70).WithMessage("{Titulo} no exceder 70 caracteres");
 
             RuleFor(p => p.Asin)
                 .NotEmpty().WithMessage("{Asin} no puede ser en blanco")
                 .NotNull().WithMessage("{Asin} no puede ser nulo")
-                .MaximumLength(70).WithMessage("{Asin} no exceder 50 caracteres");
+                .MaximumLength(70).WithMessage("{Asin} no exceder 70 caracteres");
 
 
             RuleFor(p => p.Paginas)
                 .Must(p=>p>0).WithMessage("{Paginas} debe ser mayor que cero")
-                .Must(p => p < 1000).WithMessage("{Paginas} debe ser menr que 1000")
+                .Must(p => p < 1000).WithMessage("{Paginas} debe ser mayor que 1000")
                 ;
 
             RuleFor(p => p.EditorialId)
