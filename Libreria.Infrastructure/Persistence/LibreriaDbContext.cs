@@ -91,12 +91,18 @@ namespace Libreria.Infrastructure.Persistence
                     p => p.HasKey(k => new { k.LibroId, k.GeneroId, k.Id }));
 
 
-
+            modelBuilder.Entity<Editorial>().HasData(LibreriaDbContextSeed.GetPreconfiguredEditorial());
+            modelBuilder.Entity<Autor>().HasData(LibreriaDbContextSeed.GetPreconfiguredAutor());
+            modelBuilder.Entity<Genero>().HasData(LibreriaDbContextSeed.GetPreconfiguredGenero());
+            modelBuilder.Entity<Libro>().HasData(LibreriaDbContextSeed.GetPreconfiguredLibro());
+            modelBuilder.Entity<LibroAutor>().HasData(LibreriaDbContextSeed.GetPreconfiguredLibroAutor());
+            modelBuilder.Entity<LibroGenero>().HasData(LibreriaDbContextSeed.GetPreconfiguredLibroGenero());
 
 
 
         }
 
 
+       
     }
 }
