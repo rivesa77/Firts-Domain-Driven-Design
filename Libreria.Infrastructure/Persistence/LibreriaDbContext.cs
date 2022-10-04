@@ -1,6 +1,7 @@
 ﻿using Libreria.Domain;
 using Libreria.Domain.Common;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace Libreria.Infrastructure.Persistence
 {
@@ -19,6 +20,8 @@ namespace Libreria.Infrastructure.Persistence
         public DbSet<Genero>? Genero { get; set; }
         public DbSet<Autor>? Autor { get; set; }
         public DbSet<LibroAutor>? LibroAutor { get; set; }
+
+        public DbSet<LibroGenero>? LibroGenero { get; set; }
 
 
         // Se ejecuta antes de insertar/actualizar el valor en la BD para la auditoria
@@ -53,6 +56,7 @@ namespace Libreria.Infrastructure.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            
             /// usar para hacer la relacion logica entre entidades en el caso que no se hayan declarado en el DOMAIN como estan ahora
             /// relacion logica por codigo
             /// 

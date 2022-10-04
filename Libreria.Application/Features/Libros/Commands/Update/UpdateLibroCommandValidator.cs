@@ -17,9 +17,9 @@ namespace Libreria.Application.Features.Libros.Commands.Update
                 .MaximumLength(70).WithMessage("{Titulo} no exceder 50 caracteres");
 
             RuleFor(p => p.Asin)
-                .NotEmpty().WithMessage("{Titulo} no puede ser en blanco")
-                .NotNull().WithMessage("{Titulo} no puede ser nulo")
-                .MaximumLength(70).WithMessage("{Titulo} no exceder 50 caracteres");
+                .NotEmpty().WithMessage("{Asin} no puede ser en blanco")
+                .NotNull().WithMessage("{Asin} no puede ser nulo")
+                .MaximumLength(70).WithMessage("{Asin} no exceder 50 caracteres");
 
 
             RuleFor(p => p.Paginas)

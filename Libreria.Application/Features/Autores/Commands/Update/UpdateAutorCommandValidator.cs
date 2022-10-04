@@ -19,9 +19,9 @@ namespace Libreria.Application.Features.Autores.Commands.Update
             // Validacion para el nombre
             // No puede ser vacio, nulo y no puede exceder de 50 caracteres
             RuleFor(p => p.Nacionalidad)
-                .NotEmpty().WithMessage("{Url} no puede ser en blanco")
-                .NotNull().WithMessage("{Url} no puede ser nulo")
-                .MaximumLength(25).WithMessage("{Url} no exceder 50 caracteres");
+                .NotEmpty().WithMessage("{Nacionalidad} no puede ser en blanco")
+                .NotNull().WithMessage("{Nacionalidad} no puede ser nulo")
+                .MaximumLength(25).WithMessage("{Nacionalidad} no exceder 50 caracteres");
 
         }
     }
