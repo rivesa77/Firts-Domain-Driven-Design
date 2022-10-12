@@ -1,5 +1,10 @@
 ﻿using Libreria.Application.Features.Autores.Queries.ViewModels;
 using Libreria.Domain;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Libreria.Application.Features.Libros.Queries.ViewModels
 {
@@ -7,7 +12,7 @@ namespace Libreria.Application.Features.Libros.Queries.ViewModels
     /// Pruebas de como mostrar los datos que devolvemos al controller que lo llama
     /// No tiene sentido hacer varios modelo pero solo quiero probar que se puede hacer
     /// </summary>
-    public class LibroVM_Complete
+    public class LibroVM_Simple
     {
         public int Id { get; set; }
         public string Titulo { get; set; }
@@ -16,13 +21,8 @@ namespace Libreria.Application.Features.Libros.Queries.ViewModels
 
         public int EditorialId { get; set; }
 
-        public virtual ICollection<AutorVM_Simple> Autores { get; set; }
-
-        public virtual ICollection<Genero> Generos { get; set; }
-
-        public virtual Editorial Editorial { get; set; }
-
-
+        
 
     }
+
 }

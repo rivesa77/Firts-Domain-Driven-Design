@@ -92,7 +92,7 @@ namespace Libreria.API.Controllers
 
         [SwaggerOperation(
             Summary = "Obtiene entidad Libro que contenga el titulo",
-            Description = "Devuelve Libro con todas sus entidades relacionadas cargadas",
+            Description = "Devuelve Libro con solo con la entidad Autor Completa",
             OperationId = "GetLibrosByTitle"
         )]
         [HttpGet("Query/GetLibrosByTitle/{titulo}", Name = "GetLibrosByTitle")]

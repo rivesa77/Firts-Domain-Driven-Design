@@ -28,6 +28,7 @@ namespace Libreria.Application.Mapping
             CreateMap<UpdateAutorCommand, Autor>();
             CreateMap<DeleteAutorCommand, Autor>();
             CreateMap<Autor, AutorVM_Complete>();
+            CreateMap<Autor, AutorVM_Simple>();
 
             // Genero
             CreateMap<CreateGeneroCommand, Genero>();
@@ -39,6 +40,7 @@ namespace Libreria.Application.Mapping
             CreateMap<UpdateLibroCommand, Libro>();
             CreateMap<DeleteLibroCommand, Libro>();
             CreateMap<Libro, LibroVM_Complete>();
+            CreateMap<Libro, LibroVM_Simple>();
 
             // Editorial
             CreateMap<CreateEditorialCommand, Editorial>();
