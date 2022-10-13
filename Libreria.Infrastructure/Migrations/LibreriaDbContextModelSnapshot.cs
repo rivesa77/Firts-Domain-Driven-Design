@@ -344,7 +344,7 @@ namespace Libreria.Infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            Asin = " 978-84-670-5330-2",
+                            Asin = "978-84-670-5330-2",
                             EditorialId = 3,
                             Paginas = 351,
                             Titulo = "Cómo hacer que te pasen cosas buenas"
@@ -391,12 +391,6 @@ namespace Libreria.Infrastructure.Migrations
                     b.Property<int>("AutorId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
@@ -409,7 +403,7 @@ namespace Libreria.Infrastructure.Migrations
                     b.Property<DateTime?>("LastModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("LibroId", "AutorId", "Id");
+                    b.HasKey("LibroId", "AutorId");
 
                     b.HasIndex("AutorId");
 
@@ -419,56 +413,47 @@ namespace Libreria.Infrastructure.Migrations
                         new
                         {
                             LibroId = 1,
-                            AutorId = 1,
-                            Id = 1
+                            AutorId = 1
                         },
                         new
                         {
                             LibroId = 2,
-                            AutorId = 2,
-                            Id = 2
+                            AutorId = 2
                         },
                         new
                         {
                             LibroId = 3,
-                            AutorId = 3,
-                            Id = 3
+                            AutorId = 3
                         },
                         new
                         {
                             LibroId = 4,
-                            AutorId = 4,
-                            Id = 4
+                            AutorId = 4
                         },
                         new
                         {
                             LibroId = 5,
-                            AutorId = 5,
-                            Id = 5
-                        },
-                        new
-                        {
-                            LibroId = 5,
-                            AutorId = 5,
-                            Id = 6
+                            AutorId = 5
                         },
                         new
                         {
                             LibroId = 6,
-                            AutorId = 1,
-                            Id = 7
+                            AutorId = 5
+                        },
+                        new
+                        {
+                            LibroId = 6,
+                            AutorId = 1
                         },
                         new
                         {
                             LibroId = 7,
-                            AutorId = 2,
-                            Id = 8
+                            AutorId = 2
                         },
                         new
                         {
                             LibroId = 8,
-                            AutorId = 3,
-                            Id = 9
+                            AutorId = 3
                         });
                 });
 
@@ -480,12 +465,6 @@ namespace Libreria.Infrastructure.Migrations
                     b.Property<int>("GeneroId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
@@ -498,7 +477,7 @@ namespace Libreria.Infrastructure.Migrations
                     b.Property<DateTime?>("LastModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("LibroId", "GeneroId", "Id");
+                    b.HasKey("LibroId", "GeneroId");
 
                     b.HasIndex("GeneroId");
 
@@ -508,62 +487,52 @@ namespace Libreria.Infrastructure.Migrations
                         new
                         {
                             LibroId = 1,
-                            GeneroId = 1,
-                            Id = 1
+                            GeneroId = 1
                         },
                         new
                         {
                             LibroId = 1,
-                            GeneroId = 2,
-                            Id = 2
+                            GeneroId = 2
                         },
                         new
                         {
                             LibroId = 2,
-                            GeneroId = 2,
-                            Id = 3
+                            GeneroId = 2
                         },
                         new
                         {
                             LibroId = 3,
-                            GeneroId = 3,
-                            Id = 4
+                            GeneroId = 3
                         },
                         new
                         {
                             LibroId = 4,
-                            GeneroId = 4,
-                            Id = 5
+                            GeneroId = 4
                         },
                         new
                         {
                             LibroId = 4,
-                            GeneroId = 5,
-                            Id = 6
+                            GeneroId = 5
                         },
                         new
                         {
                             LibroId = 5,
-                            GeneroId = 6,
-                            Id = 7
+                            GeneroId = 6
                         },
                         new
                         {
                             LibroId = 6,
-                            GeneroId = 7,
-                            Id = 8
+                            GeneroId = 7
                         },
                         new
                         {
                             LibroId = 7,
-                            GeneroId = 8,
-                            Id = 9
+                            GeneroId = 8
                         },
                         new
                         {
                             LibroId = 8,
-                            GeneroId = 3,
-                            Id = 10
+                            GeneroId = 3
                         });
                 });
 
@@ -616,32 +585,40 @@ namespace Libreria.Infrastructure.Migrations
 
             modelBuilder.Entity("Libreria.Domain.LibroAutor", b =>
                 {
-                    b.HasOne("Libreria.Domain.Autor", null)
-                        .WithMany()
+                    b.HasOne("Libreria.Domain.Autor", "Autor")
+                        .WithMany("LibroAutor")
                         .HasForeignKey("AutorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Libreria.Domain.Libro", null)
-                        .WithMany()
+                    b.HasOne("Libreria.Domain.Libro", "Libro")
+                        .WithMany("LibroAutor")
                         .HasForeignKey("LibroId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Autor");
+
+                    b.Navigation("Libro");
                 });
 
             modelBuilder.Entity("Libreria.Domain.LibroGenero", b =>
                 {
-                    b.HasOne("Libreria.Domain.Genero", null)
-                        .WithMany()
+                    b.HasOne("Libreria.Domain.Genero", "Genero")
+                        .WithMany("LibroGenero")
                         .HasForeignKey("GeneroId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Libreria.Domain.Libro", null)
-                        .WithMany()
+                    b.HasOne("Libreria.Domain.Libro", "Libro")
+                        .WithMany("LibroGenero")
                         .HasForeignKey("LibroId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Genero");
+
+                    b.Navigation("Libro");
                 });
 
             modelBuilder.Entity("Libreria.Domain.Precio", b =>
@@ -655,13 +632,27 @@ namespace Libreria.Infrastructure.Migrations
                     b.Navigation("Libro");
                 });
 
+            modelBuilder.Entity("Libreria.Domain.Autor", b =>
+                {
+                    b.Navigation("LibroAutor");
+                });
+
             modelBuilder.Entity("Libreria.Domain.Editorial", b =>
                 {
                     b.Navigation("Libros");
                 });
 
+            modelBuilder.Entity("Libreria.Domain.Genero", b =>
+                {
+                    b.Navigation("LibroGenero");
+                });
+
             modelBuilder.Entity("Libreria.Domain.Libro", b =>
                 {
+                    b.Navigation("LibroAutor");
+
+                    b.Navigation("LibroGenero");
+
                     b.Navigation("Precios");
                 });
 #pragma warning restore 612, 618

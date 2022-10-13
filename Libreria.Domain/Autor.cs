@@ -9,15 +9,17 @@ namespace Libreria.Domain
 
         public Autor()
         {
-            Libros = new List<Libro>();
+            Libros = new List<Libro>();            
+            LibroAutor = new List<LibroAutor>();
         }
 
         public string Nombre { get; set; }
         public string Biografia { get; set; }
         public string Nacionalidad { get; set; }
 
-        [JsonIgnore]
+        
         public virtual ICollection<Libro> Libros{ get; set; }
+        public virtual ICollection<LibroAutor>? LibroAutor { get; set; }
 
 
 

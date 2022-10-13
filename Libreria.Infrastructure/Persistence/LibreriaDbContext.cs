@@ -68,19 +68,59 @@ namespace Libreria.Infrastructure.Persistence
 
 
             
-            modelBuilder.Entity<Libro>()
-               .HasMany(m => m.Autores) //muchos libros
-               .WithMany(m => m.Libros) // que entidad padre es                
+            //modelBuilder.Entity<Libro>()
+            //   .HasMany(m => m.Autores) //muchos libros
+            //   .WithMany(m => m.Libros) // que entidad padre es                
                
-               .UsingEntity<LibroAutor>(
-                    p => p.HasKey(e => new { e.LibroId, e.AutorId,e.Id })
+            //   .UsingEntity<LibroAutor>(
+            //        p => p.HasKey(e => new { e.LibroId, e.AutorId,e.Id })
+            //    );
+
+
+            // Muchos a muchos
+            modelBuilder.Entity<Libro>()
+                .HasMany(a => a.Autores)
+                .WithMany(v => v.Libros)
+                .UsingEntity<LibroAutor>(
+                    j => j
+                       .HasOne(p => p.Autor)
+                       .WithMany(p => p.LibroAutor)
+                       .HasForeignKey(p => p.AutorId),
+                    j => j
+                        .HasOne(p => p.Libro)
+                        .WithMany(p => p.LibroAutor)
+                        .HasForeignKey(p => p.LibroId),
+                    j =>
+                    {
+                        j.HasKey(t => new { t.LibroId, t.AutorId });
+                    }
                 );
 
+            modelBuilder.Entity<LibroAutor>().Ignore(va => va.Id);
+
+
+            // Muchos a muchos
             modelBuilder.Entity<Libro>()
-                .HasMany(m => m.Generos)
-                .WithMany(t => t.Libros)
-                .UsingEntity<LibroGenero>(
-                    p => p.HasKey(k => new { k.LibroId, k.GeneroId, k.Id }));
+                            .HasMany(a => a.Generos)
+                            .WithMany(v => v.Libros)
+                            .UsingEntity<LibroGenero>(
+                                j => j
+                                   .HasOne(p => p.Genero)
+                                   .WithMany(p => p.LibroGenero)
+                                   .HasForeignKey(p => p.GeneroId),
+                                j => j
+                                    .HasOne(p => p.Libro)
+                                    .WithMany(p => p.LibroGenero)
+                                    .HasForeignKey(p => p.LibroId),
+                                j =>
+                                {
+                                    j.HasKey(t => new { t.LibroId, t.GeneroId });
+                                }
+                            );
+
+            modelBuilder.Entity<LibroGenero>().Ignore(va => va.Id);
+
+
 
             modelBuilder.Entity<Editorial>().HasData(LibreriaDbContextSeed.GetPreconfiguredEditorial());
             modelBuilder.Entity<Autor>().HasData(LibreriaDbContextSeed.GetPreconfiguredAutor());

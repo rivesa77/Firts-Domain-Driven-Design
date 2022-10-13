@@ -10,11 +10,14 @@ namespace Libreria.Domain
         public Genero()
         {
             Libros = new List<Libro>();
+            LibroGenero = new List<LibroGenero>();
         }
 
         public string Nombre { get; set; } = string.Empty;
-        [JsonIgnore]
+        
         public virtual ICollection<Libro> Libros { get; set; }
+        public virtual ICollection<LibroGenero>? LibroGenero { get; set; }
+
 
     }
 

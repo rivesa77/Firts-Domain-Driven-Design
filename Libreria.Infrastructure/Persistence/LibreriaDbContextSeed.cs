@@ -89,15 +89,15 @@ namespace Libreria.Infrastructure.Persistence
         {
             return new List<LibroAutor>
             {
-                new LibroAutor {AutorId=1,LibroId=1,Id=1},
-                new LibroAutor {AutorId=2,LibroId=2,Id=2},
-                new LibroAutor {AutorId=3,LibroId=3,Id=3},
-                new LibroAutor {AutorId=4,LibroId=4,Id=4},
-                new LibroAutor {AutorId=5,LibroId=5,Id=5},
-                new LibroAutor {AutorId=5,LibroId=5,Id=6},
-                new LibroAutor {AutorId=1,LibroId=6,Id=7},
-                new LibroAutor {AutorId=2,LibroId=7,Id=8},
-                new LibroAutor {AutorId=3,LibroId=8,Id=9},
+                new LibroAutor {AutorId=1,LibroId=1},
+                new LibroAutor {AutorId=2,LibroId=2},
+                new LibroAutor {AutorId=3,LibroId=3},
+                new LibroAutor {AutorId=4,LibroId=4},
+                new LibroAutor {AutorId=5,LibroId=5},
+                new LibroAutor {AutorId=5,LibroId=6},
+                new LibroAutor {AutorId=1,LibroId=6},
+                new LibroAutor {AutorId=2,LibroId=7},
+                new LibroAutor {AutorId=3,LibroId=8},
             };
         }
 
@@ -105,16 +105,16 @@ namespace Libreria.Infrastructure.Persistence
         {
             return new List<LibroGenero>
             {
-                new LibroGenero {GeneroId=1,LibroId=1,Id=1},
-                new LibroGenero {GeneroId=2,LibroId=1,Id=2},
-                new LibroGenero {GeneroId=2,LibroId=2,Id=3},
-                new LibroGenero {GeneroId=3,LibroId=3,Id=4},
-                new LibroGenero {GeneroId=4,LibroId=4,Id=5},
-                new LibroGenero {GeneroId=5,LibroId=4,Id=6},
-                new LibroGenero {GeneroId=6,LibroId=5,Id=7},
-                new LibroGenero {GeneroId=7,LibroId=6,Id=8},
-                new LibroGenero {GeneroId=8,LibroId=7,Id=9},
-                new LibroGenero {GeneroId=3,LibroId=8,Id=10},
+                new LibroGenero {GeneroId=1,LibroId=1},
+                new LibroGenero {GeneroId=2,LibroId=1},
+                new LibroGenero {GeneroId=2,LibroId=2},
+                new LibroGenero {GeneroId=3,LibroId=3},
+                new LibroGenero {GeneroId=4,LibroId=4},
+                new LibroGenero {GeneroId=5,LibroId=4},
+                new LibroGenero {GeneroId=6,LibroId=5},
+                new LibroGenero {GeneroId=7,LibroId=6},
+                new LibroGenero {GeneroId=8,LibroId=7},
+                new LibroGenero {GeneroId=3,LibroId=8},
             };
         }
 

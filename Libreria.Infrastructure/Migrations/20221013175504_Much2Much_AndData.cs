@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Libreria.Infrastructure.Migrations
 {
-    public partial class TablesWithData : Migration
+    public partial class Much2Much_AndData : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -92,8 +92,6 @@ namespace Libreria.Infrastructure.Migrations
                 name: "LibroAutor",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
                     LibroId = table.Column<int>(type: "int", nullable: false),
                     AutorId = table.Column<int>(type: "int", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -103,7 +101,7 @@ namespace Libreria.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LibroAutor", x => new { x.LibroId, x.AutorId, x.Id });
+                    table.PrimaryKey("PK_LibroAutor", x => new { x.LibroId, x.AutorId });
                     table.ForeignKey(
                         name: "FK_LibroAutor_Autor_AutorId",
                         column: x => x.AutorId,
@@ -122,8 +120,6 @@ namespace Libreria.Infrastructure.Migrations
                 name: "LibroGenero",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
                     LibroId = table.Column<int>(type: "int", nullable: false),
                     GeneroId = table.Column<int>(type: "int", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -133,7 +129,7 @@ namespace Libreria.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LibroGenero", x => new { x.LibroId, x.GeneroId, x.Id });
+                    table.PrimaryKey("PK_LibroGenero", x => new { x.LibroId, x.GeneroId });
                     table.ForeignKey(
                         name: "FK_LibroGenero_Genero_GeneroId",
                         column: x => x.GeneroId,
@@ -228,7 +224,7 @@ namespace Libreria.Infrastructure.Migrations
                     { 2, "978-84-253-6179-1", null, null, 1, null, null, 148, "Un año y tres meses" },
                     { 3, "978-84-339-9954-2", null, null, 2, null, null, 520, "Personas decentes" },
                     { 4, "978-84-16588-43-5", null, null, 2, null, null, 350, "Invisible" },
-                    { 5, " 978-84-670-5330-2", null, null, 3, null, null, 351, "Cómo hacer que te pasen cosas buenas" },
+                    { 5, "978-84-670-5330-2", null, null, 3, null, null, 351, "Cómo hacer que te pasen cosas buenas" },
                     { 6, "978-84-670-6221-2", null, null, 4, null, null, 641, "Encuentra tu persona vitamina" },
                     { 7, "978-84-204-6212-7", null, null, 5, null, null, 852, "El caso Alaska Sanders" },
                     { 8, "978-84-01-02771-0", null, null, 6, null, null, 963, "Cuento de hadas" },
@@ -237,35 +233,35 @@ namespace Libreria.Infrastructure.Migrations
 
             migrationBuilder.InsertData(
                 table: "LibroAutor",
-                columns: new[] { "AutorId", "Id", "LibroId", "CreatedBy", "CreatedDate", "LastModifiedBy", "LastModifiedDate" },
+                columns: new[] { "AutorId", "LibroId", "CreatedBy", "CreatedDate", "LastModifiedBy", "LastModifiedDate" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, null, null, null, null },
-                    { 2, 2, 2, null, null, null, null },
-                    { 3, 3, 3, null, null, null, null },
-                    { 4, 4, 4, null, null, null, null },
-                    { 5, 5, 5, null, null, null, null },
-                    { 5, 6, 5, null, null, null, null },
-                    { 1, 7, 6, null, null, null, null },
-                    { 2, 8, 7, null, null, null, null },
-                    { 3, 9, 8, null, null, null, null }
+                    { 1, 1, null, null, null, null },
+                    { 2, 2, null, null, null, null },
+                    { 3, 3, null, null, null, null },
+                    { 4, 4, null, null, null, null },
+                    { 5, 5, null, null, null, null },
+                    { 1, 6, null, null, null, null },
+                    { 5, 6, null, null, null, null },
+                    { 2, 7, null, null, null, null },
+                    { 3, 8, null, null, null, null }
                 });
 
             migrationBuilder.InsertData(
                 table: "LibroGenero",
-                columns: new[] { "GeneroId", "Id", "LibroId", "CreatedBy", "CreatedDate", "LastModifiedBy", "LastModifiedDate" },
+                columns: new[] { "GeneroId", "LibroId", "CreatedBy", "CreatedDate", "LastModifiedBy", "LastModifiedDate" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, null, null, null, null },
-                    { 2, 2, 1, null, null, null, null },
-                    { 2, 3, 2, null, null, null, null },
-                    { 3, 4, 3, null, null, null, null },
-                    { 4, 5, 4, null, null, null, null },
-                    { 5, 6, 4, null, null, null, null },
-                    { 6, 7, 5, null, null, null, null },
-                    { 7, 8, 6, null, null, null, null },
-                    { 8, 9, 7, null, null, null, null },
-                    { 3, 10, 8, null, null, null, null }
+                    { 1, 1, null, null, null, null },
+                    { 2, 1, null, null, null, null },
+                    { 2, 2, null, null, null, null },
+                    { 3, 3, null, null, null, null },
+                    { 4, 4, null, null, null, null },
+                    { 5, 4, null, null, null, null },
+                    { 6, 5, null, null, null, null },
+                    { 7, 6, null, null, null, null },
+                    { 8, 7, null, null, null, null },
+                    { 3, 8, null, null, null, null }
                 });
 
             migrationBuilder.CreateIndex(
