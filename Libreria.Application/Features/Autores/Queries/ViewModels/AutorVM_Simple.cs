@@ -1,12 +1,4 @@
-﻿using Libreria.Application.Features.Libros.Queries.ViewModels;
-using Libreria.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Libreria.Application.Features.Autores.Queries.ViewModels
+﻿namespace Libreria.Application.Features.Autores.Queries.ViewModels
 {
     /// <summary>
     /// Pruebas de como mostrar los datos que devolvemos al controller que lo llama

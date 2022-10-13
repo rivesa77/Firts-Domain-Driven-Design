@@ -6,6 +6,7 @@ using Libreria.Application.Features.Autores.Queries.ViewModels;
 using Libreria.Application.Features.Editoriales.Commands.Create;
 using Libreria.Application.Features.Editoriales.Commands.Delete;
 using Libreria.Application.Features.Editoriales.Commands.Update;
+using Libreria.Application.Features.Editoriales.Queries.ViewModels;
 using Libreria.Application.Features.Generos.Commands.Create;
 using Libreria.Application.Features.Generos.Commands.Delete;
 using Libreria.Application.Features.Generos.Commands.Update;
@@ -46,7 +47,7 @@ namespace Libreria.Application.Mapping
             CreateMap<CreateEditorialCommand, Editorial>();
             CreateMap<UpdateEditorialCommand, Editorial>();
             CreateMap<DeleteEditorialCommand, Editorial>();
-
+            CreateMap<Editorial, EditorialVM>();
 
 
         }

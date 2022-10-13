@@ -21,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Editoriales\Queries\" />
     <Folder Include="Features\Generos\Queries\" />
   </ItemGroup>
 

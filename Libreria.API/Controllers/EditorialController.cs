@@ -1,8 +1,13 @@
 ﻿using Libreria.Application.Features.Editoriales.Commands.Create;
 using Libreria.Application.Features.Editoriales.Commands.Delete;
 using Libreria.Application.Features.Editoriales.Commands.Update;
+using Libreria.Application.Features.Editoriales.Queries.GetEditorialList;
+using Libreria.Application.Features.Libros.Queries.GetLibroById;
+using Libreria.Application.Features.Libros.Queries.GetLibrosList;
+using Libreria.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
 namespace Libreria.API.Controllers
@@ -60,6 +65,26 @@ namespace Libreria.API.Controllers
             await mediator.Send(command);
             return Ok();
         }
+
+
+        [SwaggerOperation(
+            Summary = "Obtiene listado de todas las entidades Editorial",
+            Description = "Devuelve Editorial con la entidad Libro mapeada",
+            OperationId = "GetEditorialList"
+        )]
+        [HttpGet(Name = "Query/GetEditorialList")]
+        //Tipo de valor a devolver al cliente
+        [ProducesResponseType(typeof(IEnumerable<Editorial>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<IEnumerable<Editorial>>> getEditorialList()
+        {
+            var query = new GetEditorialListQuery();
+            // envio de la query a la capa aplication
+            var editorial = await mediator.Send(query);
+
+            return Ok(editorial);
+        }
+
+
 
     }
 }
