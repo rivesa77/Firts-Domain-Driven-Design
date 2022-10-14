@@ -1,4 +1,6 @@
 ﻿using Libreria.Application.Features.Autores.Queries.ViewModels;
+using Libreria.Application.Features.Editoriales.Queries.ViewModels;
+using Libreria.Application.Features.Generos.Queries.ViewModel;
 using Libreria.Domain;
 
 namespace Libreria.Application.Features.Libros.Queries.ViewModels
@@ -18,9 +20,9 @@ namespace Libreria.Application.Features.Libros.Queries.ViewModels
 
         public virtual ICollection<AutorVM_Simple> Autores { get; set; }
 
-        public virtual ICollection<Genero> Generos { get; set; }
+        public virtual ICollection<GeneroVM_Simple> Generos { get; set; }
 
-        public virtual Editorial Editorial { get; set; }
+        public virtual EditorialVM_Simple Editorial { get; set; }
 
 
 

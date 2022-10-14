@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Libreria.Application.Features.Editoriales.Queries.GetEditorialList
 {
-    public class GetEditorialListQuery : IRequest<List<EditorialVM>>
+    public class GetEditorialListQuery : IRequest<List<EditorialVM_Complete>>
     {
     }
 }

@@ -20,8 +20,4 @@
     <ProjectReference Include="..\Libreria.Domain\Libreria.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Generos\Queries\" />
-  </ItemGroup>
-
 </Project>
