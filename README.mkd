@@ -1,7 +1,11 @@
 
 # Proyecto C#, ASP.NET y NET CORE - Clean Architecture y Domain Driven Design (DDD)
 
-* Este proyecto sigue el curso impartido en <https://formacion.tutellus.com/tecnologia/software/c-aspnet-y-net-core-clean-architecture-y-domain-driven-design-ddd-37559> la cadena de conexion se encuentra en el proyecto ``Libreria.Api`` dentro del archivo de configuracion **"appsettings.json"**
+* Este proyecto sigue el curso impartido en
+ 
+   <https://formacion.tutellus.com/tecnologia/software/c-aspnet-y-net-core-clean-architecture-y-domain-driven-design-ddd-37559> 
+
+* La cadena de conexion se encuentra en el proyecto ``Libreria.Api`` dentro del archivo de configuracion **"appsettings.json"**
 
 * Debes cambiar cambiar el **Data Source** a tu **sqlServer** al que quieres generar la **BD**, ahora mismo esta apuntando a mi maquina local ``"ConnectionString": "Data Source = RICHI-PC;Initial Catalog=Libreria;Integrated Security=true"``
 
