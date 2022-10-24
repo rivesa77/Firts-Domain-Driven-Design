@@ -34,7 +34,7 @@
 * Libro -> **Generos: Muchos a Muchos**
 * Libro -> **Precio : 1 a Muchos (sin terminar)**
 
-### Para la estructura de dise�o se ha utilizado
+### Para la estructura de diseño se ha utilizado
 
 * **Patron DDD**
 
@@ -75,7 +75,7 @@
 #### Libreria.Infrastructure
 
 * Migrations
-   Script para generar la estructura de tablas en BD y a�adidos campos de ejemplos
+   Script para generar la estructura de tablas en BD y añadidos campos de ejemplos
 
 * Persistence
    Definicion de los contexto con todas las entidades
