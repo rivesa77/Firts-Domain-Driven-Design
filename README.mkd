@@ -1,0 +1,95 @@
+
+# Proyecto C#, ASP.NET y NET CORE - Clean Architecture y Domain Driven Design (DDD)
+
+* Este proyecto sigue el curso impartido en <https://formacion.tutellus.com/tecnologia/software/c-aspnet-y-net-core-clean-architecture-y-domain-driven-design-ddd-37559> la cadena de conexion se encuentra en el proyecto ``Libreria.Api`` dentro del archivo de configuracion **"appsettings.json"**
+
+* Debes cambiar cambiar el **Data Source** a tu **sqlServer** al que quieres generar la **BD**, ahora mismo esta apuntando a mi maquina local ``"ConnectionString": "Data Source = RICHI-PC;Initial Catalog=Libreria;Integrated Security=true"``
+
+* El catalago no es necesario generarlo en la **BD** , ya que si no existe lo genera automaticamente, si quieres cambiar el nombre del catalogo lo tienes que realizar antes de generar la estructura de las tablas.
+
+* Para generar la **BD** con los datos de prueba y poder utilizarlos se deben seguir los siguiente pasos:
+
+1. Establecer el proyecto ``Libreria.Api`` como proyecto de inicio
+
+2. Abrir la consola del **Administrador de paquetes**
+
+3. En la consola del **Administrador de paquetes** seleccionar como proyecto predeterminado el proyecto ``"Libreria.Infrastructure"`` que contiene el script de migracion
+
+4. Escribir en la consola del Administrador de paquetes
+
+   ``update-database``
+
+## Este proyecto es una libreria simple con la siguiente entidades
+
+* **Libro**
+* **Autor**
+* **Editorial**
+* **Genero**
+* **Precio** (sin terminar)
+
+### La relaciones son
+
+* Libro -> **Editorial : Muchos a 1**
+* Libro -> **Autor: Muchos a Muchos**
+* Libro -> **Generos: Muchos a Muchos**
+* Libro -> **Precio : 1 a Muchos (sin terminar)**
+
+### Para la estructura de dise�o se ha utilizado
+
+* **Patron DDD**
+
+* **Patron CQRS**
+
+* **MediatR**
+
+* **UnitOfWork**
+
+* **FluentValidator**
+
+* **AutoMapper**
+
+* **Libreria.Domain**
+
+#### Definicion de las clases
+
+* **Libreria.Application**
+
+* Behaviours (Comportamientos)
+   Excepciones y validaciones del Request
+
+* Contracts
+
+#### Persistence
+
+* Declaracion de las interfaces de los modelos y el base IAsyncRepository
+
+* Exception
+   Excepciones y validaciones
+
+* Features
+   Implementacion de los metodos de CQRS y sus viewModels
+
+* Mapping
+   Mapeo de clases y sus viewModel y los metodos CQRS con AutoMapper
+
+#### Libreria.Infrastructure
+
+* Migrations
+   Script para generar la estructura de tablas en BD y a�adidos campos de ejemplos
+
+* Persistence
+   Definicion de los contexto con todas las entidades
+
+* Repositories
+   Implementacion de las interfaces definidas en Contracts/Persistence y el UnitOfWork
+
+#### Libreria.API
+
+* Controller
+   Controladoras de los WebService generado
+
+* Error
+   Definicion personalizada de los errores mediante Json
+
+* Middleware
+   Comprueba las llamadas que sean correctas antes de procesarlas
