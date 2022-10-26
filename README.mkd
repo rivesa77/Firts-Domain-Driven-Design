@@ -15,9 +15,9 @@
 
 1. Establecer el proyecto ``Libreria.Api`` como proyecto de inicio
 
-2. Abrir la consola del **Administrador de paquetes**
+2. Abrir la consola del **Administrador de paquetes nuGet**
 
-3. En la consola del **Administrador de paquetes** seleccionar como proyecto predeterminado el proyecto ``"Libreria.Infrastructure"`` que contiene el script de migracion
+3. En la consola del **Administrador de paquetes nuGet** seleccionar como proyecto predeterminado el proyecto ``"Libreria.Infrastructure"`` que contiene el script de migracion
 
 4. Escribir en la consola del Administrador de paquetes
 
