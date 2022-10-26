@@ -52,8 +52,6 @@
 
 * **AutoMapper**
 
-* **Libreria.Domain**
-
 #### Definicion de las clases
 
 * **Libreria.Application**
