@@ -9,7 +9,7 @@
 
 * Debes cambiar cambiar el **Data Source** a tu **sqlServer** al que quieres generar la **BD**, ahora mismo esta apuntando a mi maquina local ``"ConnectionString": "Data Source = RICHI-PC;Initial Catalog=Libreria;Integrated Security=true"``
 
-* El catalago no es necesario generarlo en la **BD** , ya que si no existe lo genera automaticamente, si quieres cambiar el nombre del catalogo lo tienes que realizar antes de generar la estructura de las tablas.
+* El catalago no es necesario generarlo en la **BD** , ya que si no existe lo genera automaticamente, si quieres cambiar el nombre del catalogo lo tienes que realizar antes de generar la estructura de las tablas en la cadena de conexion.
 
 * Para generar la **BD** con los datos de prueba y poder utilizarlos se deben seguir los siguiente pasos:
 
