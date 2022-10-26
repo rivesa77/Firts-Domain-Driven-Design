@@ -52,46 +52,57 @@
 
 * **AutoMapper**
 
-#### Definicion de las clases
+#### Estructura del proyecto DDD
+
+* **Libreria.Domain**
+
+			Definiciones de las clases
 
 * **Libreria.Application**
 
-* Behaviours (Comportamientos)
-   Excepciones y validaciones del Request
+	* Behaviours (Comportamientos)
+	
+			Excepciones y validaciones del Request
 
-* Contracts
+	* Contracts
+	
+ 			* Persistence 
+					Declaracion de las interfaces de los modelos y el base IAsyncRepository
 
-#### Persistence
+	* IAsyncRepository
 
-* Declaracion de las interfaces de los modelos y el base IAsyncRepository
+			* Exception
+					Excepciones y validaciones
 
-* Exception
-   Excepciones y validaciones
+			* Features
+					Implementacion de los metodos de CQRS y sus viewModels
 
-* Features
-   Implementacion de los metodos de CQRS y sus viewModels
+			* Mapping
+					Mapeo de clases y sus viewModel y los metodos CQRS con AutoMapper
 
-* Mapping
-   Mapeo de clases y sus viewModel y los metodos CQRS con AutoMapper
+* **Libreria.Infrastructure**
+	* Migrations
+	
+   			Script para generar la estructura de tablas en BD y añadidos campos de ejemplos
 
-#### Libreria.Infrastructure
+	* Persistence
+	
+   			Definicion de los contexto con todas las entidades
 
-* Migrations
-   Script para generar la estructura de tablas en BD y añadidos campos de ejemplos
+	* Repositories
+	
+   			Implementacion de las interfaces definidas en Contracts/Persistence y el UnitOfWork
 
-* Persistence
-   Definicion de los contexto con todas las entidades
+* **Libreria.API**
 
-* Repositories
-   Implementacion de las interfaces definidas en Contracts/Persistence y el UnitOfWork
+	* Controller
+	
+   			Controladoras de los WebService generado
 
-#### Libreria.API
+	* Error
+	
+   			Definicion personalizada de los errores mediante Json
 
-* Controller
-   Controladoras de los WebService generado
-
-* Error
-   Definicion personalizada de los errores mediante Json
-
-* Middleware
-   Comprueba las llamadas que sean correctas antes de procesarlas
+	* Middleware
+	
+   			Comprueba las llamadas que sean correctas antes de procesarlas
