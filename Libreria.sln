@@ -10,7 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{5B7C84FE-F9E6-43BC-B5EB-EEE9A432A036}"
 	ProjectSection(SolutionItems) = preProject
 		Notas.txt = Notas.txt
-		readMe.txt = readMe.txt
+		README.mkd = README.mkd
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{2D48E78F-91A7-474D-A1C0-30B5434C8780}"
