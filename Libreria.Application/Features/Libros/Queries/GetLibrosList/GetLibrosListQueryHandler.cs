@@ -7,9 +7,8 @@ namespace Libreria.Application.Features.Libros.Queries.GetLibrosList
 {
     public class GetLibrosListQueryHandler : IRequestHandler<GetLibrosListQuery, List<LibroVM_Complete>>
     {
-
-        
         private readonly IUnitOfWork unitOfWork;
+
         // Mapeo de las entidades
         private readonly IMapper mapper;
 
@@ -27,6 +26,4 @@ namespace Libreria.Application.Features.Libros.Queries.GetLibrosList
             return mapper.Map<List<LibroVM_Complete>>(libroList);
         }
     }
-
-
 }

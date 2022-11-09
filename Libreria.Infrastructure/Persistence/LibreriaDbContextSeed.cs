@@ -1,11 +1,9 @@
 ﻿using Libreria.Domain;
-using Microsoft.Extensions.Logging;
 
 namespace Libreria.Infrastructure.Persistence
 {
     public class LibreriaDbContextSeed
     {
-
         public static IEnumerable<Editorial> GetPreconfiguredEditorial()
         {
             return new List<Editorial>
@@ -19,7 +17,6 @@ namespace Libreria.Infrastructure.Persistence
                 new Editorial {Nombre="Grijalbo",Id=7},
             };
         }
-
 
         public static IEnumerable<Autor> GetPreconfiguredAutor()
         {
@@ -45,11 +42,8 @@ namespace Libreria.Infrastructure.Persistence
                 ,Nacionalidad="INGLES",Id=9},
                 new Autor {Nombre="CLEAR, JAMES",Biografia="El conferencista James Clear es un escritor bestseller centrado en los hábitos, la toma de decisiones y la mejora continua. Es el autor del éxito de ventas número 1 del New York Times, Hábitos Atómicos (Atomic Habits). El libro se ha traducido a más de 50 idiomas y ha vendido más de 5 millones de copias."
                 ,Nacionalidad="INGLES",Id=10},
-
-
             };
         }
-
 
         public static IEnumerable<Genero> GetPreconfiguredGenero()
         {
@@ -63,11 +57,8 @@ namespace Libreria.Infrastructure.Persistence
                 new Genero {Nombre="Misterio",Id=6},
                 new Genero {Nombre="Ficción clásica",Id=7},
                 new Genero {Nombre="Fantasía",Id=8},
-
             };
         }
-
-
 
         public static IEnumerable<Libro> GetPreconfiguredLibro()
         {
@@ -117,6 +108,5 @@ namespace Libreria.Infrastructure.Persistence
                 new LibroGenero {GeneroId=3,LibroId=8},
             };
         }
-
     }
 }

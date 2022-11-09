@@ -7,12 +7,11 @@ using Microsoft.Extensions.Logging;
 
 namespace Libreria.Application.Features.Editoriales.Commands.Delete
 {
-
     public class DeleteEditorialCommandHandler : IRequestHandler<DeleteEditorialCommand>
     {
-
         private readonly IEditorialRepository editorialRepository;
         private readonly IMapper mapper;
+
         // Obtenemos el log del borrado
         private readonly ILogger<DeleteEditorialCommandHandler> logger;
 
@@ -25,7 +24,7 @@ namespace Libreria.Application.Features.Editoriales.Commands.Delete
 
         public async Task<Unit> Handle(DeleteEditorialCommand request, CancellationToken cancellationToken)
         {
-            // Comprobamos en la BD si existe el objeto 
+            // Comprobamos en la BD si existe el objeto
             var editorialToDelte = await editorialRepository.GetByIdAsync(request.Id);
             if (editorialToDelte is null)
             {
@@ -33,12 +32,10 @@ namespace Libreria.Application.Features.Editoriales.Commands.Delete
                 throw new NotFoundException(nameof(Editorial), request.Id);
             }
 
-
             // llamamos a la actualizacion base, con el parametro del objeto a actualizar
             await editorialRepository.DeleteAsync(editorialToDelte);
             logger.LogInformation($"Se ha borrado correctamente el editorial {request.Id}");
             return Unit.Value;
         }
     }
-
 }

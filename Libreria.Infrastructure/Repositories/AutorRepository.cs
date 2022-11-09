@@ -9,15 +9,11 @@ namespace Libreria.Infrastructure.Repositories
     {
         public AutorRepository(LibreriaDbContext context) : base(context)
         {
-
         }
 
         public async Task<IEnumerable<Autor>> GetAutorByName(string nombre)
         {
-            return await context.Autor!.Where(l => l.Nombre.ToLower().Contains(nombre.ToLower())).Include(x => x.Libros).ThenInclude(x=>x.Generos).ToListAsync();
+            return await context.Autor!.Where(l => l.Nombre.ToLower().Contains(nombre.ToLower())).Include(x => x.Libros).ThenInclude(x => x.Generos).ToListAsync();
         }
-
-        
     }
-
 }

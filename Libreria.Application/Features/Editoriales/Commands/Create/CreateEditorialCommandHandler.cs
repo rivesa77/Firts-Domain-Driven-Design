@@ -6,8 +6,6 @@ using Microsoft.Extensions.Logging;
 
 namespace Libreria.Application.Features.Editoriales.Commands.Create
 {
-
-
     public class CreateEditorialCommandHandler : IRequestHandler<CreateEditorialCommand, int>
     {
         private readonly ILogger<CreateEditorialCommandHandler> _logger;
@@ -38,6 +36,4 @@ namespace Libreria.Application.Features.Editoriales.Commands.Create
             return editorialEntity.Id;
         }
     }
-
-    
 }

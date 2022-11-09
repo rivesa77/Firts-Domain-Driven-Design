@@ -10,10 +10,8 @@ using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 
-
 namespace Libreria.API.Controllers
 {
-
     [ApiController]
     // Ruta
     [Route("api/Libreria/[Controller]")]
@@ -25,7 +23,6 @@ namespace Libreria.API.Controllers
         {
             this.mediator = mediator;
         }
-
 
         [SwaggerOperation(
              Summary = "Alta para un nuevo libro pero obligando a que asigne el IdAutor y el IdGenero",
@@ -42,9 +39,9 @@ namespace Libreria.API.Controllers
 
         // Name = Nombre que va tener el metodo para el cliente dentro de la url
         [HttpPut(Name = "UpdateLibro")]
-        // definicion de los posible resultados 
+        // definicion de los posible resultados
         [ProducesResponseType(StatusCodes.Status200OK)] // OK
-        [ProducesResponseType(StatusCodes.Status404NotFound)] // No encontrado el registro 
+        [ProducesResponseType(StatusCodes.Status404NotFound)] // No encontrado el registro
         [ProducesDefaultResponseType]
         //Tipo de valor a devolver al cliente
         [ProducesResponseType((int)HttpStatusCode.OK)]
@@ -56,7 +53,7 @@ namespace Libreria.API.Controllers
 
         // Name = Nombre que va tener el metodo para el cliente dentro de la url
         [HttpDelete("{id}", Name = "DeleteLibro")]
-        // definicion de los posible resultados 
+        // definicion de los posible resultados
         [ProducesResponseType(StatusCodes.Status204NoContent)] // No contenido el registro a eliminar
         [ProducesResponseType(StatusCodes.Status404NotFound)] // No encontrado el registro a eliminar
         [ProducesDefaultResponseType]
@@ -89,7 +86,6 @@ namespace Libreria.API.Controllers
             return Ok(Libros);
         }
 
-
         [SwaggerOperation(
             Summary = "Obtiene entidad Libro que contenga el titulo",
             Description = "Devuelve Libro con solo con la entidad Autor Completa",
@@ -107,16 +103,14 @@ namespace Libreria.API.Controllers
             return Ok(Libros);
         }
 
-
         [SwaggerOperation(
             Summary = "Obtiene entidad Libro por Id",
             Description = "Devuelve Libro con todas sus entidades relacionadas cargadas",
             OperationId = "GetLibroById"
         )]
-        [HttpGet("Query/GetLibroById/{Id}", Name = "GetLibroById")]        
+        [HttpGet("Query/GetLibroById/{Id}", Name = "GetLibroById")]
         //Tipo de valor a devolver al cliente
         [ProducesResponseType(typeof(Libro), (int)HttpStatusCode.OK)]
-        
         public async Task<ActionResult<Libro>> GetLibroById(int Id)
         {
             var query = new GetLibroById(Id);
@@ -125,6 +119,5 @@ namespace Libreria.API.Controllers
 
             return Ok(Libro);
         }
-
     }
 }

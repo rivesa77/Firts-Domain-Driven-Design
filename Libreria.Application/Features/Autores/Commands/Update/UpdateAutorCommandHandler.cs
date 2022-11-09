@@ -7,11 +7,11 @@ using Microsoft.Extensions.Logging;
 
 namespace Libreria.Application.Features.Autores.Commands.Update
 {
-
     public class UpdateAutorCommandHandler : IRequestHandler<UpdateAutorCommand>
     {
         private readonly IAutorRepository autorRepository;
         private readonly IMapper mapper;
+
         // Obtenemos el log de la inserccion
         private readonly ILogger<UpdateAutorCommandHandler> logger;
 
@@ -24,7 +24,7 @@ namespace Libreria.Application.Features.Autores.Commands.Update
 
         public async Task<Unit> Handle(UpdateAutorCommand request, CancellationToken cancellationToken)
         {
-            // Comprobamos en la BD si existe el objeto 
+            // Comprobamos en la BD si existe el objeto
             var autorToUpdate = await autorRepository.GetByIdAsync(request.Id);
             if (autorToUpdate is null)
             {
@@ -44,5 +44,4 @@ namespace Libreria.Application.Features.Autores.Commands.Update
             return Unit.Value;
         }
     }
-
 }

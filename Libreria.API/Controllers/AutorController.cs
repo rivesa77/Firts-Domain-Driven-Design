@@ -10,7 +10,6 @@ using System.Net;
 
 namespace Libreria.API.Controllers
 {
-
     [ApiController]
     // Ruta
     [Route("api/Libreria/[Controller]")]
@@ -23,7 +22,6 @@ namespace Libreria.API.Controllers
             this.mediator = mediator;
         }
 
- 
         [HttpPost(Name = "CreateAutor")]
         //Tipo de valor a devolver al cliente
         [ProducesResponseType((int)HttpStatusCode.OK)]
@@ -34,9 +32,9 @@ namespace Libreria.API.Controllers
 
         // Name = Nombre que va tener el metodo para el cliente dentro de la url
         [HttpPut(Name = "UpdateAutor")]
-        // definicion de los posible resultados 
+        // definicion de los posible resultados
         [ProducesResponseType(StatusCodes.Status200OK)] // OK
-        [ProducesResponseType(StatusCodes.Status404NotFound)] // No encontrado el registro 
+        [ProducesResponseType(StatusCodes.Status404NotFound)] // No encontrado el registro
         [ProducesDefaultResponseType]
         //Tipo de valor a devolver al cliente
         [ProducesResponseType((int)HttpStatusCode.OK)]
@@ -48,7 +46,7 @@ namespace Libreria.API.Controllers
 
         // Name = Nombre que va tener el metodo para el cliente dentro de la url
         [HttpDelete("{id}", Name = "DeleteAutor")]
-        // definicion de los posible resultados 
+        // definicion de los posible resultados
         [ProducesResponseType(StatusCodes.Status204NoContent)] // No contenido el registro a eliminar
         [ProducesResponseType(StatusCodes.Status404NotFound)] // No encontrado el registro a eliminar
         [ProducesDefaultResponseType]
@@ -80,6 +78,5 @@ namespace Libreria.API.Controllers
 
             return Ok(autores);
         }
-
     }
 }

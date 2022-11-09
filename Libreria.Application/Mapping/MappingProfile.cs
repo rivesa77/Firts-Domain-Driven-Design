@@ -24,7 +24,7 @@ namespace Libreria.Application.Mapping
         public MappingProfile()
         {
             // Mapeo de entidad
-            
+
             // Autor
             CreateMap<CreateAutorCommand, Autor>();
             CreateMap<UpdateAutorCommand, Autor>();
@@ -52,8 +52,6 @@ namespace Libreria.Application.Mapping
             CreateMap<DeleteEditorialCommand, Editorial>();
             CreateMap<Editorial, EditorialVM_Simple>();
             CreateMap<Editorial, EditorialVM_Complete>();
-
-
         }
     }
 }

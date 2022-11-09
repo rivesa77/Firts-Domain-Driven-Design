@@ -12,6 +12,7 @@ namespace Libreria.Infrastructure.Repositories
 
         //Trabajamos con el unitOfWork pero con entidades personalizadas
         private ILibroRepository _libroRepository;
+
         private IAutorRepository _autorRepository;
         private IGeneroRepository _generoRepository;
         private IEditorialRepository _editorialRepository;
@@ -21,6 +22,7 @@ namespace Libreria.Infrastructure.Repositories
         // Vamos a inyectarlo no via constructor, si no via propiedades de la clase unitOfWork
         // Estas 2 variable son la implementacion definida en IUnitOfWork
         public ILibroRepository LibroRepository => _libroRepository ??= new LibroRepository(context);
+
         public IAutorRepository AutorRepository => _autorRepository ??= new AutorRepository(context);
         public IGeneroRepository GeneroRepository => _generoRepository ??= new GeneroRepository(context);
         public IEditorialRepository EditorialRepository => _editorialRepository ??= new EditorialRepository(context);

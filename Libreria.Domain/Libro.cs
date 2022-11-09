@@ -4,7 +4,6 @@ namespace Libreria.Domain
 {
     public class Libro : BaseDomainModel
     {
-
         public Libro()
         {
             Precios = new List<Precio>();
@@ -26,10 +25,7 @@ namespace Libreria.Domain
         public virtual ICollection<Genero> Generos { get; set; }
         public virtual ICollection<LibroGenero>? LibroGenero { get; set; }
 
-        public virtual ICollection<Autor> Autores{ get; set; }
+        public virtual ICollection<Autor> Autores { get; set; }
         public virtual ICollection<LibroAutor>? LibroAutor { get; set; }
-
-
     }
-
 }

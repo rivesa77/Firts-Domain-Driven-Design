@@ -1,5 +1,4 @@
 ﻿using Libreria.Application.Features.Libros.Queries.ViewModels;
-using Libreria.Domain;
 
 namespace Libreria.Application.Features.Autores.Queries.ViewModels
 {
@@ -14,8 +13,6 @@ namespace Libreria.Application.Features.Autores.Queries.ViewModels
         public string Biografia { get; set; }
         public string Nacionalidad { get; set; }
 
-
         public virtual ICollection<LibroVM_Simple> Libros { get; set; }
-
     }
 }

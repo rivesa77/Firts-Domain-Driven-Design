@@ -10,6 +10,5 @@
         public string Nombre { get; set; }
         public string Biografia { get; set; }
         public string Nacionalidad { get; set; }
-
     }
 }

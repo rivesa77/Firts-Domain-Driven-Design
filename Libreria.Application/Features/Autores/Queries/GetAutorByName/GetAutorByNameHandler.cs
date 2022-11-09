@@ -1,17 +1,14 @@
 ﻿using AutoMapper;
 using Libreria.Application.Contracts.Persistence;
 using Libreria.Application.Features.Autores.Queries.ViewModels;
-using Libreria.Application.Features.Libros.Queries.ViewModels;
 using MediatR;
 
 namespace Libreria.Application.Features.Autores.Queries.GetAutorByName
 {
-
     public class GetAutorByNameHandler : IRequestHandler<GetAutorByName, List<AutorVM_Complete>>
     {
-
-
         private readonly IUnitOfWork unitOfWork;
+
         // Mapeo de las entidades
         private readonly IMapper mapper;
 
@@ -29,5 +26,4 @@ namespace Libreria.Application.Features.Autores.Queries.GetAutorByName
             return mapper.Map<List<AutorVM_Complete>>(autores);
         }
     }
-
 }

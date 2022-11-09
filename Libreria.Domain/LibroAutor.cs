@@ -2,7 +2,6 @@
 
 namespace Libreria.Domain
 {
-
     public class LibroAutor : BaseDomainModel
     {
         public int LibroId { get; set; }
@@ -11,7 +10,5 @@ namespace Libreria.Domain
         public Libro? Libro { get; set; }
 
         public Autor? Autor { get; set; }
-
     }
-
 }

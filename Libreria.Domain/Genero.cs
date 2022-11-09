@@ -1,12 +1,9 @@
 ﻿using Libreria.Domain.Common;
-using System.Text.Json.Serialization;
 
 namespace Libreria.Domain
 {
-
     public class Genero : BaseDomainModel
     {
-
         public Genero()
         {
             Libros = new List<Libro>();
@@ -14,11 +11,8 @@ namespace Libreria.Domain
         }
 
         public string Nombre { get; set; } = string.Empty;
-        
+
         public virtual ICollection<Libro> Libros { get; set; }
         public virtual ICollection<LibroGenero>? LibroGenero { get; set; }
-
-
     }
-
 }

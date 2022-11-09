@@ -4,15 +4,10 @@ using Libreria.Infrastructure.Persistence;
 
 namespace Libreria.Infrastructure.Repositories
 {
-
     public class EditorialRepository : RepositoryBase<Editorial>, IEditorialRepository
     {
         public EditorialRepository(LibreriaDbContext context) : base(context)
         {
-
         }
-
-
     }
-
 }

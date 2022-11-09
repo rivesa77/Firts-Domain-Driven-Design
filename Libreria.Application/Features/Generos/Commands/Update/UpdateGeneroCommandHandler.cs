@@ -7,12 +7,11 @@ using Microsoft.Extensions.Logging;
 
 namespace Libreria.Application.Features.Generos.Commands.Update
 {
-
-
     public class UpdateGeneroCommandHandler : IRequestHandler<UpdateGeneroCommand>
     {
         private readonly IGeneroRepository generoRepository;
         private readonly IMapper mapper;
+
         // Obtenemos el log de la inserccion
         private readonly ILogger<UpdateGeneroCommandHandler> logger;
 
@@ -25,7 +24,7 @@ namespace Libreria.Application.Features.Generos.Commands.Update
 
         public async Task<Unit> Handle(UpdateGeneroCommand request, CancellationToken cancellationToken)
         {
-            // Comprobamos en la BD si existe el objeto 
+            // Comprobamos en la BD si existe el objeto
             var generoToUpdate = await generoRepository.GetByIdAsync(request.Id);
             if (generoToUpdate is null)
             {
@@ -45,5 +44,4 @@ namespace Libreria.Application.Features.Generos.Commands.Update
             return Unit.Value;
         }
     }
-
 }

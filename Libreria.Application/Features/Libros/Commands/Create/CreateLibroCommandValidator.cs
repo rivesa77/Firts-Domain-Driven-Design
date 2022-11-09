@@ -12,10 +12,8 @@ namespace Libreria.Application.Features.Libros.Commands.Create
             RuleFor(p => p.Asin)
                 .NotNull().WithMessage("{asin} no puede ser nulo");
 
-            RuleFor(p => p.Paginas)                                
+            RuleFor(p => p.Paginas)
                 .GreaterThan(0).WithMessage("{paginas} no puede ser 0");
-
-
         }
     }
 }

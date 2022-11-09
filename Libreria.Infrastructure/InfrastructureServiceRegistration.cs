@@ -14,7 +14,6 @@ namespace Libreria.Infrastructure
             services.AddDbContext<LibreriaDbContext>(option =>
                     option.UseSqlServer(configuration.GetConnectionString("ConnectionString")));
 
-
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped(typeof(IAsyncRepository<>), typeof(RepositoryBase<>));
             services.AddScoped<ILibroRepository, LibroRepository>();

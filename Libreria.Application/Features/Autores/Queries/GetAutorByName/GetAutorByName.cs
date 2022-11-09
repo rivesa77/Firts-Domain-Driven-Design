@@ -3,7 +3,6 @@ using MediatR;
 
 namespace Libreria.Application.Features.Autores.Queries.GetAutorByName
 {
-
     public class GetAutorByName : IRequest<List<AutorVM_Complete>>
     {
         // Parametro de entrada
@@ -15,5 +14,4 @@ namespace Libreria.Application.Features.Autores.Queries.GetAutorByName
             this.Nombre = nombre ?? throw new ArgumentException((nombre));
         }
     }
-
 }

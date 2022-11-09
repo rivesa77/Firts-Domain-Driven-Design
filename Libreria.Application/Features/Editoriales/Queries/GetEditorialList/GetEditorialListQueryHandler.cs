@@ -7,12 +7,10 @@ using System.Linq.Expressions;
 
 namespace Libreria.Application.Features.Editoriales.Queries.GetEditorialList
 {
-
-
     public class GetEditorialListQueryHandler : IRequestHandler<GetEditorialListQuery, List<EditorialVM_Complete>>
     {
-
         private readonly IUnitOfWork unitOfWork;
+
         // Mapeo de las entidades
         private readonly IMapper mapper;
 
@@ -39,5 +37,4 @@ namespace Libreria.Application.Features.Editoriales.Queries.GetEditorialList
             return mapper.Map<List<EditorialVM_Complete>>(editoriales);
         }
     }
-
 }

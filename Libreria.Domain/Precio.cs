@@ -4,10 +4,8 @@ namespace Libreria.Domain
 {
     public class Precio : BaseDomainModel
     {
-
         public Precio()
         {
-
         }
 
         public DateTime Fecha { get; set; }
@@ -17,6 +15,5 @@ namespace Libreria.Domain
         public int LibroId { get; set; }
 
         public virtual Libro Libro { get; set; }
-
     }
 }

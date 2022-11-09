@@ -8,13 +8,11 @@ using Microsoft.Extensions.Logging;
 
 namespace Libreria.Application.Features.Generos.Commands.Delete
 {
-
-
     public class DeleteGeneroCommandHandler : IRequestHandler<DeleteGeneroCommand>
     {
-
         private readonly IGeneroRepository generoRepository;
         private readonly IMapper mapper;
+
         // Obtenemos el log del borrado
         private readonly ILogger<DeleteGeneroCommandHandler> logger;
 
@@ -27,7 +25,7 @@ namespace Libreria.Application.Features.Generos.Commands.Delete
 
         public async Task<Unit> Handle(DeleteGeneroCommand request, CancellationToken cancellationToken)
         {
-            // Comprobamos en la BD si existe el objeto 
+            // Comprobamos en la BD si existe el objeto
             var generoToDelte = await generoRepository.GetByIdAsync(request.Id);
             if (generoToDelte is null)
             {
@@ -35,12 +33,10 @@ namespace Libreria.Application.Features.Generos.Commands.Delete
                 throw new NotFoundException(nameof(Genero), request.Id);
             }
 
-
             // llamamos a la actualizacion base, con el parametro del objeto a actualizar
             await generoRepository.DeleteAsync(generoToDelte);
             logger.LogInformation($"Se ha borrado correctamente el genero {request.Id}");
             return Unit.Value;
         }
     }
-
 }

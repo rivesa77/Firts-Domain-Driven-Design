@@ -1,7 +1,6 @@
 ﻿using Libreria.Application.Features.Autores.Queries.ViewModels;
 using Libreria.Application.Features.Editoriales.Queries.ViewModels;
 using Libreria.Application.Features.Generos.Queries.ViewModel;
-using Libreria.Domain;
 
 namespace Libreria.Application.Features.Libros.Queries.ViewModels
 {
@@ -23,8 +22,5 @@ namespace Libreria.Application.Features.Libros.Queries.ViewModels
         public virtual ICollection<GeneroVM_Simple> Generos { get; set; }
 
         public virtual EditorialVM_Simple Editorial { get; set; }
-
-
-
     }
 }

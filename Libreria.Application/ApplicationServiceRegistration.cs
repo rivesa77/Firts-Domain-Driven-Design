@@ -8,7 +8,6 @@ namespace Libreria.Application
 {
     public static class ApplicationServiceRegistration
     {
-
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
@@ -20,6 +19,5 @@ namespace Libreria.Application
 
             return services;
         }
-
     }
 }

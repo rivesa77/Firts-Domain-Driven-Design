@@ -6,12 +6,11 @@ using Microsoft.Extensions.Logging;
 
 namespace Libreria.Application.Features.Autores.Commands.Create
 {
-
-
     public class CreateAutorCommandHandler : IRequestHandler<CreateAutorCommand, int>
     {
         private readonly IAutorRepository autorRepository;
         private readonly IMapper mapper;
+
         // Obtenemos el log de la inserccion
         private readonly ILogger<CreateAutorCommandHandler> logger;
 
@@ -27,15 +26,8 @@ namespace Libreria.Application.Features.Autores.Commands.Create
             var autorEntity = mapper.Map<Autor>(request);
             var newAutor = await autorRepository.AddAsync(autorEntity);
             logger.LogInformation($"Autor {newAutor.Id} fue creado existosamente");
-            
+
             return newAutor.Id;
         }
-
-     
-
     }
-
- 
-
-    
 }

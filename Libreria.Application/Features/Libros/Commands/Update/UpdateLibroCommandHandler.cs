@@ -11,6 +11,7 @@ namespace Libreria.Application.Features.Libros.Commands.Update
     {
         private readonly ILibroRepository libroRepository;
         private readonly IMapper mapper;
+
         // Obtenemos el log de la inserccion
         private readonly ILogger<UpdateLibroCommandHandler> logger;
 
@@ -23,7 +24,7 @@ namespace Libreria.Application.Features.Libros.Commands.Update
 
         public async Task<Unit> Handle(UpdateLibroCommand request, CancellationToken cancellationToken)
         {
-            // Comprobamos en la BD si existe el objeto 
+            // Comprobamos en la BD si existe el objeto
             var libroToUpdate = await libroRepository.GetByIdAsync(request.Id);
             if (libroToUpdate is null)
             {

@@ -22,14 +22,11 @@ namespace Libreria.Infrastructure.Repositories
             return entity;
         }
 
-
-
         public async Task DeleteAsync(T Entity)
         {
             context.Set<T>().Remove(Entity);
             await context.SaveChangesAsync();
         }
-
 
         public async Task<IReadOnlyList<T>> GetAllAsync()
         {
@@ -63,7 +60,6 @@ namespace Libreria.Infrastructure.Repositories
         public async Task<IReadOnlyList<T>> GetAsync(Expression<Func<T, bool>> predicate = null, Func<IQueryable<T>, IOrderedQueryable<T>> OrderBy = null,
             List<Expression<Func<T, object>>> includes = null, bool disbledTracking = true)
         {
-
             IQueryable<T> query = context.Set<T>();
             if (disbledTracking)
                 query = query.AsNoTracking();
@@ -98,7 +94,6 @@ namespace Libreria.Infrastructure.Repositories
         public void AddEntity(T entity)
         {
             context.Set<T>().Add(entity);
-
         }
 
         // Solo en memoria

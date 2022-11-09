@@ -4,7 +4,6 @@ namespace Libreria.Application.Exceptions
 {
     public class ValidationException : ApplicationException
     {
-
         public IDictionary<string, string[]> Errors { get; }
 
         public ValidationException() : base("Se han encontrado los siguientes errores")
@@ -19,6 +18,5 @@ namespace Libreria.Application.Exceptions
                 .GroupBy(p => p.PropertyName, p => p.ErrorMessage)
                 .ToDictionary(fallo => fallo.Key, fallo => fallo.ToArray());
         }
-
     }
 }

@@ -12,9 +12,5 @@
         public int Paginas { get; set; }
 
         public int EditorialId { get; set; }
-
-        
-
     }
-
 }

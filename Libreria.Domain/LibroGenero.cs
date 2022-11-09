@@ -10,6 +10,5 @@ namespace Libreria.Domain
         public Libro? Libro { get; set; }
 
         public Genero? Genero { get; set; }
-
     }
 }

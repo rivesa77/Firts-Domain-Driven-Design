@@ -7,12 +7,11 @@ using Microsoft.Extensions.Logging;
 
 namespace Libreria.Application.Features.Editoriales.Commands.Update
 {
-
-
     public class UpdateEditorialCommandHandler : IRequestHandler<UpdateEditorialCommand>
     {
         private readonly IEditorialRepository editorialRepository;
         private readonly IMapper mapper;
+
         // Obtenemos el log de la inserccion
         private readonly ILogger<UpdateEditorialCommandHandler> logger;
 
@@ -25,7 +24,7 @@ namespace Libreria.Application.Features.Editoriales.Commands.Update
 
         public async Task<Unit> Handle(UpdateEditorialCommand request, CancellationToken cancellationToken)
         {
-            // Comprobamos en la BD si existe el objeto 
+            // Comprobamos en la BD si existe el objeto
             var editorialToUpdate = await editorialRepository.GetByIdAsync(request.Id);
             if (editorialToUpdate is null)
             {
@@ -45,5 +44,4 @@ namespace Libreria.Application.Features.Editoriales.Commands.Update
             return Unit.Value;
         }
     }
-
 }

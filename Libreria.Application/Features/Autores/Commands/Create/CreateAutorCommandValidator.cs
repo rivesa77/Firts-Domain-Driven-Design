@@ -14,7 +14,6 @@ namespace Libreria.Application.Features.Autores.Commands.Create
 
             RuleFor(p => p.Biografia)
             .NotNull().WithMessage("{Biografia} no puede ser nulo");
-
         }
     }
 }

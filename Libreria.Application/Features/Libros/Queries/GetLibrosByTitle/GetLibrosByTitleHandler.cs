@@ -5,12 +5,10 @@ using MediatR;
 
 namespace Libreria.Application.Features.Libros.Queries.GetLibrosByTitle
 {
-
     public class GetLibrosByTitleHandler : IRequestHandler<GetLibrosByTitle, List<LibroVM_Complete>>
     {
-
-
         private readonly IUnitOfWork unitOfWork;
+
         // Mapeo de las entidades
         private readonly IMapper mapper;
 
@@ -28,5 +26,4 @@ namespace Libreria.Application.Features.Libros.Queries.GetLibrosByTitle
             return mapper.Map<List<LibroVM_Complete>>(libros);
         }
     }
-
 }

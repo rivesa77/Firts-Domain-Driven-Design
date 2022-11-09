@@ -12,8 +12,10 @@ namespace Libreria.API.Middleware
 
         // Representa el pipeLine que va a continuar hacia la siguiente fase en caso no ocurra ninguna excepcion
         private readonly RequestDelegate next;
+
         // Loger para guardar la excepcion sobre la clase ExceptionMiddleware
         private readonly ILogger<ExceptionMiddleware> logger;
+
         // Necesario para saber si que ambiente estamos en Produccion o desarrollo
         private readonly IHostEnvironment env;
 
@@ -33,7 +35,6 @@ namespace Libreria.API.Middleware
             }
             catch (Exception ex)
             {
-
                 logger.LogError(ex, ex.Message);
                 context.Response.ContentType = MediaTypeNames.Application.Json;
                 var statuscode = (int)HttpStatusCode.InternalServerError;
@@ -41,7 +42,6 @@ namespace Libreria.API.Middleware
 
                 switch (ex)
                 {
-
                     case NotFoundException notFoundException:
                         {
                             statuscode = (int)HttpStatusCode.NotFound;
@@ -70,7 +70,6 @@ namespace Libreria.API.Middleware
                 if (string.IsNullOrEmpty(result))
                     result = JsonConvert.SerializeObject(new CodeErrorException(statuscode, ex.Message, ex.StackTrace));
 
-
                 //var response = env.IsDevelopment()
                 //    ? new CodeErrorException((int)HttpStatusCode.InternalServerError, ex.Message, ex.StackTrace)
                 //    : new CodeErrorException((int)HttpStatusCode.InternalServerError);
@@ -79,9 +78,6 @@ namespace Libreria.API.Middleware
                 //var json = JsonSerializer.Serialize(response, option);
                 context.Response.StatusCode = statuscode;
                 await context.Response.WriteAsync(result);
-
-
-
             }
         }
     }

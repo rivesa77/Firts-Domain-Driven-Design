@@ -2,7 +2,6 @@
 
 namespace Libreria.Application.Features.Libros.Commands.Create
 {
-
     public class CreateLibroCommand : IRequest<int>
     {
         public string Titulo { get; set; } = string.Empty;
@@ -14,7 +13,5 @@ namespace Libreria.Application.Features.Libros.Commands.Create
         public int GeneroId { get; set; }
 
         public int AutorId { get; set; }
-
     }
-
 }

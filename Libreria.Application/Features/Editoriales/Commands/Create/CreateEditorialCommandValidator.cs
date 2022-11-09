@@ -8,8 +8,6 @@ namespace Libreria.Application.Features.Editoriales.Commands.Create
         {
             RuleFor(p => p.Nombre)
                 .NotNull().WithMessage("{Nombre} no puede ser nulo");
-
-
         }
     }
 }

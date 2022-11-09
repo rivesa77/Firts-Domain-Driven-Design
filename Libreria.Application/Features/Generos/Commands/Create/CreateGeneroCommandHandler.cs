@@ -6,8 +6,6 @@ using Microsoft.Extensions.Logging;
 
 namespace Libreria.Application.Features.Generos.Commands.Create
 {
-
-
     public class CreateGeneroCommandHandler : IRequestHandler<CreateGeneroCommand, int>
     {
         private readonly ILogger<CreateGeneroCommandHandler> _logger;
@@ -38,6 +36,4 @@ namespace Libreria.Application.Features.Generos.Commands.Create
             return generoEntity.Id;
         }
     }
-
-    
 }

@@ -2,8 +2,6 @@
 using Libreria.Application.Features.Editoriales.Commands.Delete;
 using Libreria.Application.Features.Editoriales.Commands.Update;
 using Libreria.Application.Features.Editoriales.Queries.GetEditorialList;
-using Libreria.Application.Features.Libros.Queries.GetLibroById;
-using Libreria.Application.Features.Libros.Queries.GetLibrosList;
 using Libreria.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +10,6 @@ using System.Net;
 
 namespace Libreria.API.Controllers
 {
-
     [ApiController]
     // Ruta
     [Route("api/Libreria/[Controller]")]
@@ -36,9 +33,9 @@ namespace Libreria.API.Controllers
 
         // Name = Nombre que va tener el metodo para el cliente dentro de la url
         [HttpPut(Name = "UpdateEditorial")]
-        // definicion de los posible resultados 
+        // definicion de los posible resultados
         [ProducesResponseType(StatusCodes.Status200OK)] // OK
-        [ProducesResponseType(StatusCodes.Status404NotFound)] // No encontrado el registro 
+        [ProducesResponseType(StatusCodes.Status404NotFound)] // No encontrado el registro
         [ProducesDefaultResponseType]
         //Tipo de valor a devolver al cliente
         [ProducesResponseType((int)HttpStatusCode.OK)]
@@ -50,7 +47,7 @@ namespace Libreria.API.Controllers
 
         // Name = Nombre que va tener el metodo para el cliente dentro de la url
         [HttpDelete("{id}", Name = "DeleteEditorial")]
-        // definicion de los posible resultados 
+        // definicion de los posible resultados
         [ProducesResponseType(StatusCodes.Status204NoContent)] // No contenido el registro a eliminar
         [ProducesResponseType(StatusCodes.Status404NotFound)] // No encontrado el registro a eliminar
         [ProducesDefaultResponseType]
@@ -65,7 +62,6 @@ namespace Libreria.API.Controllers
             await mediator.Send(command);
             return Ok();
         }
-
 
         [SwaggerOperation(
             Summary = "Obtiene listado de todas las entidades Editorial",
@@ -83,8 +79,5 @@ namespace Libreria.API.Controllers
 
             return Ok(editorial);
         }
-
-
-
     }
 }

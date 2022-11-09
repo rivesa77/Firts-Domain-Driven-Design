@@ -7,12 +7,11 @@ using Microsoft.Extensions.Logging;
 
 namespace Libreria.Application.Features.Autores.Commands.Delete
 {
-
     public class DeleteAutorCommandHandler : IRequestHandler<DeleteAutorCommand>
     {
-
         private readonly IAutorRepository autorRepository;
         private readonly IMapper mapper;
+
         // Obtenemos el log del borrado
         private readonly ILogger<DeleteAutorCommandHandler> logger;
 
@@ -25,7 +24,7 @@ namespace Libreria.Application.Features.Autores.Commands.Delete
 
         public async Task<Unit> Handle(DeleteAutorCommand request, CancellationToken cancellationToken)
         {
-            // Comprobamos en la BD si existe el objeto 
+            // Comprobamos en la BD si existe el objeto
             var autorToDelte = await autorRepository.GetByIdAsync(request.Id);
             if (autorToDelte is null)
             {
@@ -33,12 +32,10 @@ namespace Libreria.Application.Features.Autores.Commands.Delete
                 throw new NotFoundException(nameof(Autor), request.Id);
             }
 
-
             // llamamos a la actualizacion base, con el parametro del objeto a actualizar
             await autorRepository.DeleteAsync(autorToDelte);
             logger.LogInformation($"Se ha borrado correctamente el autor {request.Id}");
             return Unit.Value;
         }
     }
-
 }

@@ -5,17 +5,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Libreria.Infrastructure.Repositories
 {
-
     public class LibroRepository : RepositoryBase<Libro>, ILibroRepository
     {
         public LibroRepository(LibreriaDbContext context) : base(context)
         {
-
         }
 
         public async Task<IEnumerable<Libro>> GetLibrosByTitle(string titulo)
         {
-            return await context.Libro!.Where(l=>l.Titulo.ToLower().Contains(titulo.ToLower())).Include(x => x.Autores).ToListAsync();
+            return await context.Libro!.Where(l => l.Titulo.ToLower().Contains(titulo.ToLower())).Include(x => x.Autores).ToListAsync();
         }
 
         /// <summary>
@@ -28,7 +26,6 @@ namespace Libreria.Infrastructure.Repositories
             return await context.Libro!.Include(x => x.Autores).AsSplitQuery().Include(x => x.Editorial).AsSplitQuery().Include(x => x.Generos).AsSplitQuery().ToListAsync();
         }
 
-
         /// <summary>
         /// Obtiene Libro por Id
         /// </summary>
@@ -37,7 +34,7 @@ namespace Libreria.Infrastructure.Repositories
         public async Task<Libro> GetLibroById(int Id)
         {
             //return await context.Libro!.FindAsync(Id);
-            return await context.Libro!.Where(x=>x.Id == Id).Include(x => x.Autores).AsSplitQuery().Include(x => x.Editorial).AsSplitQuery().Include(x => x.Generos).AsSplitQuery().FirstOrDefaultAsync();
+            return await context.Libro!.Where(x => x.Id == Id).Include(x => x.Autores).AsSplitQuery().Include(x => x.Editorial).AsSplitQuery().Include(x => x.Generos).AsSplitQuery().FirstOrDefaultAsync();
         }
     }
 }

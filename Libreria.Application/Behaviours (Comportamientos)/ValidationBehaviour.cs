@@ -29,7 +29,6 @@ namespace Libreria.Application.Behaviours
                 {
                     throw new ValidationException(failures);
                 }
-
             }
 
             // Continua el flujo si no hay errores de validacion
